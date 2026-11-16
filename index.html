@@ -1,429 +1,783 @@
-<!DOCTYPE html><html lang="fa" dir="rtl">
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>کلاس دهم | بانک سؤالات و جزوات</title><style>
+<meta name="theme-color" content="#101827">
+<title>کلاس دهم | استان‌شناسی آذربایجان شرقی</title>
+
+<style>
 @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap');
 
-:root {
---bg:#f5f7fb;
---card:#ffffff;
---text:#202b40;
---muted:#77839a;
---primary:#635bdb;
---border:#e8ebf2;
+:root{
+  --bg:#f2f5fa;
+  --card:#ffffff;
+  --text:#172033;
+  --muted:#68758a;
+  --primary:#2563eb;
+  --primary2:#1d4ed8;
+  --border:#e2e8f0;
+  --green:#16a34a;
+  --red:#dc2626;
+  --shadow:0 8px 25px rgba(20,35,70,.07);
 }
-
-.dark {
---bg:#111827;
---card:#1f2937;
---text:#f3f4f6;
---muted:#aab4c5;
---border:#374151;
+body.dark{
+  --bg:#0d1422;
+  --card:#172235;
+  --text:#edf3ff;
+  --muted:#a5b2c7;
+  --primary:#60a5fa;
+  --primary2:#3b82f6;
+  --border:#2b3a51;
+  --shadow:0 8px 25px rgba(0,0,0,.2);
 }
-
-* {box-sizing:border-box}
-
-body {
-margin:0;
-font-family:'Vazirmatn',sans-serif;
-background:var(--bg);
-color:var(--text);
-transition:.3s;
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Vazirmatn',Tahoma,sans-serif;
+  transition:.25s;
 }
-
-header {
-background:var(--card);
-border-bottom:1px solid var(--border);
-padding:15px 5%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-position:sticky;
-top:0;
-z-index:10;
+button,input,select{font-family:inherit}
+header{
+  background:linear-gradient(135deg,#101827,#1e3a70,#2563eb);
+  color:white;
+  padding:32px 18px 38px;
+  text-align:center;
+  border-radius:0 0 28px 28px;
 }
-
-.logo {
-font-size:23px;
-font-weight:800;
-color:var(--primary);
+.header-label{
+  display:inline-block;
+  padding:6px 13px;
+  border:1px solid #ffffff55;
+  border-radius:30px;
+  font-size:12px;
+  margin-bottom:12px;
 }
-
-.logo span {color:var(--text)}
-
-button {
-font-family:inherit;
-cursor:pointer;
-border:none;
+header h1{margin:5px 0;font-size:27px}
+header p{margin:8px 0 0;color:#dbeafe;font-size:13px}
+.container{max-width:1050px;margin:auto;padding:18px}
+.stats{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+  margin-top:-20px;
+  position:relative;
 }
-
-.theme {
-background:var(--bg);
-color:var(--text);
-padding:10px 14px;
-border-radius:12px;
+.stat{
+  background:var(--card);
+  padding:16px 8px;
+  text-align:center;
+  border-radius:16px;
+  box-shadow:var(--shadow);
 }
-
-.hero {
-margin:25px auto;
-width:90%;
-max-width:1100px;
-padding:45px 25px;
-border-radius:25px;
-color:white;
-background:linear-gradient(120deg,#635bdb,#3989d8);
+.stat strong{display:block;font-size:22px;color:var(--primary)}
+.stat span{font-size:11px;color:var(--muted)}
+.toolbar{
+  display:flex;
+  gap:9px;
+  flex-wrap:wrap;
+  margin:24px 0 16px;
 }
-
-.hero h1 {font-size:30px;margin:0 0 12px}
-.hero p {line-height:2;margin:0 0 20px;color:#eee}
-
-.search {
-width:100%;
-max-width:500px;
-padding:14px;
-border-radius:12px;
-border:none;
-font-family:inherit;
-outline:none;
+input,select{
+  background:var(--card);
+  color:var(--text);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:12px;
+  outline:none;
+  min-width:0;
 }
-
-.container {
-width:90%;
-max-width:1100px;
-margin:35px auto;
+#search{flex:1;min-width:180px}
+button{
+  border:0;
+  cursor:pointer;
+  border-radius:12px;
+  padding:11px 15px;
+  font-weight:700;
 }
-
-.section-title {
-font-size:22px;
-font-weight:800;
-margin-bottom:20px;
+.primary{background:var(--primary);color:white}
+.primary:hover{background:var(--primary2)}
+.secondary{
+  background:var(--card);
+  color:var(--text);
+  border:1px solid var(--border);
 }
-
-.subjects {
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(145px,1fr));
-gap:15px;
+.section-title{
+  margin:27px 0 13px;
+  font-size:18px;
+  font-weight:800;
 }
-
-.subject {
-background:var(--card);
-padding:22px 10px;
-border:1px solid var(--border);
-border-radius:18px;
-text-align:center;
-cursor:pointer;
-transition:.2s;
+.subject-card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:17px;
+  padding:17px;
+  margin-bottom:12px;
+  box-shadow:var(--shadow);
 }
-
-.subject:hover {
-transform:translateY(-5px);
-border-color:var(--primary);
+.subject-card h3{margin:0 0 6px;font-size:16px}
+.subject-card p{margin:0;color:var(--muted);font-size:12px}
+.subject-card.active{border:2px solid var(--primary)}
+.lesson-tag{
+  display:inline-block;
+  background:#dbeafe;
+  color:#1d4ed8;
+  padding:4px 9px;
+  border-radius:20px;
+  font-size:11px;
+  margin-bottom:9px;
 }
-
-.subject .icon {font-size:30px}
-.subject h3 {font-size:15px;margin:10px 0 0}
-
-.filters {
-display:flex;
-gap:10px;
-flex-wrap:wrap;
-margin:20px 0;
+body.dark .lesson-tag{background:#203e69;color:#bfdbfe}
+.question{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:15px;
+  padding:15px;
+  margin:11px 0;
+  box-shadow:var(--shadow);
 }
-
-.filter {
-background:var(--card);
-border:1px solid var(--border);
-color:var(--text);
-padding:9px 17px;
-border-radius:20px;
+.question-top{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  align-items:center;
+  margin-bottom:10px;
 }
-
-.filter.active {
-background:var(--primary);
-color:white;
+.question-type{
+  font-size:11px;
+  color:var(--primary);
+  font-weight:700;
 }
-
-.questions {
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:15px;
+.question-number{font-size:11px;color:var(--muted)}
+.question h3{font-size:14px;line-height:2;margin:5px 0 12px}
+.answer{
+  display:none;
+  background:rgba(22,163,74,.09);
+  border-right:3px solid var(--green);
+  padding:12px;
+  border-radius:9px;
+  line-height:2;
+  font-size:13px;
+  margin-top:12px;
 }
-
-.question {
-background:var(--card);
-padding:20px;
-border:1px solid var(--border);
-border-radius:17px;
+.answer.show{display:block}
+.answer-btn{
+  background:transparent;
+  border:1px solid var(--border);
+  color:var(--primary);
+  padding:8px 12px;
+  font-size:12px;
 }
-
-.question h3 {font-size:16px;line-height:1.9}
-
-.tag {
-color:var(--primary);
-font-size:12px;
-font-weight:bold;
+.options{
+  display:grid;
+  gap:8px;
+  margin:12px 0;
 }
-
-.answer {
-display:none;
-background:var(--bg);
-padding:13px;
-border-radius:12px;
-line-height:2;
-margin-top:12px;
+.option{
+  background:var(--bg);
+  border:1px solid var(--border);
+  padding:10px;
+  border-radius:10px;
+  font-size:13px;
 }
-
-.show-answer {
-background:var(--primary);
-color:white;
-padding:9px 15px;
-border-radius:9px;
-margin-top:10px;
+.empty{
+  text-align:center;
+  color:var(--muted);
+  padding:30px;
 }
-
-.quiz {
-background:var(--card);
-border:1px solid var(--border);
-border-radius:20px;
-padding:22px;
-margin-top:35px;
+#quizBox{display:none}
+.quiz-question{
+  background:var(--card);
+  padding:17px;
+  border-radius:15px;
+  margin:12px 0;
+  border:1px solid var(--border);
 }
-
-.quiz button.option {
-display:block;
-width:100%;
-text-align:right;
-padding:13px;
-margin:10px 0;
-border-radius:10px;
-background:var(--bg);
-color:var(--text);
-border:1px solid var(--border);
+.quiz-question p{font-weight:700;line-height:2}
+.quiz-question label{
+  display:block;
+  padding:10px;
+  margin:7px 0;
+  background:var(--bg);
+  border-radius:9px;
+  font-size:13px;
+  cursor:pointer;
 }
-
-.quiz button.option:hover {
-border-color:var(--primary);
+.quiz-question input{margin-left:7px}
+#result{
+  display:none;
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:15px;
+  padding:20px;
+  text-align:center;
+  margin:15px 0;
 }
-
-#quizResult {
-margin-top:15px;
-font-weight:bold;
+#result strong{font-size:28px;color:var(--green)}
+footer{
+  margin-top:35px;
+  background:#101827;
+  color:#cbd5e1;
+  padding:25px 15px;
+  text-align:center;
+  font-size:12px;
+  line-height:2.3;
 }
-
-footer {
-margin-top:60px;
-padding:30px;
-text-align:center;
-background:var(--card);
-border-top:1px solid var(--border);
-color:var(--muted);
-line-height:2;
+footer a{color:#60a5fa;text-decoration:none;font-weight:800}
+footer .copyright{color:#94a3b8;font-size:11px}
+@media(max-width:550px){
+  header h1{font-size:22px}
+  .container{padding:13px}
+  .toolbar>*{width:100%}
+  .stats{gap:7px}
 }
+</style>
+</head>
 
-.empty {
-text-align:center;
-padding:30px;
-color:var(--muted);
-}
+<body>
 
-@media(max-width:600px){
-.hero h1{font-size:23px}
-.hero{padding:30px 20px}
-header{padding:13px 5%}
-}
-</style></head><body><header>
-<div class="logo">📚 <span>کلاس دهم</span></div>
-<button class="theme" onclick="toggleTheme()">🌙 تغییر حالت</button>
-</header><section class="hero">
-<h1>به کلاس دهم خوش آمدید!</h1>
-<p>مرجع سؤالات امتحانی، پاسخ‌نامه و جزوات آموزشی پایه دهم</p>
-<input class="search" id="search" placeholder="🔍 جست‌وجو در سؤالات و دروس..." oninput="renderQuestions()">
-</section><main class="container"><h2 class="section-title">📚 کتاب‌های درسی</h2><div class="subjects" id="subjects"></div><h2 class="section-title" style="margin-top:40px">📝 بانک سؤالات امتحانی</h2><div class="filters" id="filters"></div><div class="questions" id="questions"></div><section class="quiz">
-<h2>🎯 آزمون آنلاین</h2>
-<p>به سؤال زیر پاسخ بده و نتیجه را مشاهده کن.</p><div id="quizQuestion"></div>
-<div id="quizResult"></div>
-<button class="show-answer" onclick="nextQuiz()">سؤال بعدی ←</button>
-</section></main><footer>
-<strong>کلاس دهم</strong><br>
-بانک سؤالات و جزوات آموزشی پایه دهم<br>
-ساخته شده با ❤️ برای دانش‌آموزان
-</footer><script>
+<header>
+  <div class="header-label">سامانه آموزشی کلاس دهم</div>
+  <h1>📚 استان‌شناسی آذربایجان شرقی</h1>
+  <p>بانک سؤالات، پاسخ‌نامه و آزمون آنلاین</p>
+</header>
 
-const subjects = [
-{name:"ریاضی",icon:"📐"},
-{name:"فیزیک",icon:"⚡"},
-{name:"شیمی",icon:"🧪"},
-{name:"زیست‌شناسی",icon:"🧬"},
-{name:"فارسی",icon:"📖"},
-{name:"عربی",icon:"📝"},
-{name:"زبان انگلیسی",icon:"🌍"},
-{name:"دین و زندگی",icon:"📚"},
-{name:"جغرافیا",icon:"🌏"},
-{name:"تاریخ",icon:"🏛️"},
-{name:"هندسه",icon:"📏"},
-{name:"آمادگی دفاعی",icon:"🎓"}
-];
+<div class="container">
+
+  <div class="stats">
+    <div class="stat">
+      <strong id="totalQuestions">0</strong>
+      <span>مجموع سؤالات</span>
+    </div>
+    <div class="stat">
+      <strong>۴</strong>
+      <span>درس و بخش آموزشی</span>
+    </div>
+    <div class="stat">
+      <strong>۴</strong>
+      <span>نوع سؤال</span>
+    </div>
+  </div>
+
+  <div class="section-title">📖 فهرست درس‌ها</div>
+
+  <div class="subject-card active" onclick="filterLesson('all',this)">
+    <h3>همه سؤالات</h3>
+    <p>نمایش تمام سؤالات بانک</p>
+  </div>
+
+  <div class="subject-card" onclick="filterLesson('intro',this)">
+    <h3>مقدمه و اهداف استان‌شناسی</h3>
+    <p>آشنایی با اهداف کتاب و اهمیت شناخت استان</p>
+  </div>
+
+  <div class="subject-card" onclick="filterLesson('lesson1',this)">
+    <h3>درس اول: موقعیت جغرافیایی و وسعت استان</h3>
+    <p>موقعیت، مساحت، مختصات و مرزهای استان</p>
+  </div>
+
+  <div class="subject-card" onclick="filterLesson('lesson2',this)">
+    <h3>درس دوم: ناهمواری‌های استان</h3>
+    <p>کوهستان‌ها، دشت‌ها، جلگه‌ها و مخاطرات</p>
+  </div>
+
+  <div class="subject-card" onclick="filterLesson('lesson3',this)">
+    <h3>درس سوم: آب‌وهوای استان</h3>
+    <p>عوامل اقلیمی، بارش، دما و مخاطرات جوی</p>
+  </div>
+
+  <div class="subject-card" onclick="filterLesson('lesson4',this)">
+    <h3>درس چهارم: منابع طبیعی استان</h3>
+    <p>بخش منابع آب بر اساس متن دریافت‌شده</p>
+  </div>
+
+  <div class="section-title">🔎 جست‌وجو و دسته‌بندی</div>
+
+  <div class="toolbar">
+    <input id="search" type="text" placeholder="جست‌وجو در سؤالات..." oninput="renderQuestions()">
+    <select id="typeFilter" onchange="renderQuestions()">
+      <option value="all">همه نوع سؤالات</option>
+      <option value="تشریحی">تشریحی و کوتاه‌پاسخ</option>
+      <option value="جای خالی">جای خالی</option>
+      <option value="صحیح و غلط">صحیح و غلط</option>
+      <option value="چهارگزینه‌ای">چهارگزینه‌ای</option>
+    </select>
+    <button class="secondary" onclick="toggleDark()">🌙 حالت شب</button>
+  </div>
+
+  <div class="section-title" id="questionHeading">📝 بانک سؤالات</div>
+  <div id="questions"></div>
+
+  <div class="section-title">🎯 آزمون آنلاین</div>
+  <p style="font-size:13px;color:var(--muted);line-height:2">
+    در این بخش به سؤالات چهارگزینه‌ای پاسخ بده و در پایان نمره خودت را مشاهده کن.
+  </p>
+  <button class="primary" onclick="startQuiz()">شروع آزمون</button>
+
+  <div id="quizBox">
+    <div id="quizQuestions"></div>
+    <button class="primary" onclick="checkQuiz()">ثبت پاسخ‌ها و مشاهده نتیجه</button>
+    <div id="result"></div>
+  </div>
+
+</div>
+
+<footer>
+  <div>طراحی و توسعه سامانه آموزشی کلاس دهم</div>
+  <div>متعلق به <a href="#" onclick="alert('برای اتصال به شاد، لینک مستقیم پروفایل باید جایگزین شود.');return false;">@Arzda_1</a> است</div>
+  <div class="copyright">© تمامی حقوق این وب‌سایت محفوظ است.</div>
+</footer>
+
+<script>
 
 const questions = [
+
+/* مقدمه */
+
 {
-subject:"ریاضی",
-text:"حاصل عبارت ۲ به توان ۳ به‌علاوه ۳ به توان ۲ چند است؟",
-answer:"۲ به توان ۳ برابر ۸ و ۳ به توان ۲ برابر ۹ است. بنابراین حاصل برابر ۱۷ می‌شود."
+lesson:"intro",type:"تشریحی",important:true,
+q:"هدف اصلی کتاب استان‌شناسی چیست؟",
+a:"آشنا کردن دانش‌آموزان با ویژگی‌های جغرافیایی، تاریخی، اجتماعی، اقتصادی و فرهنگی استان محل زندگی و پرورش شهروندی آگاه و مسئول."
 },
 {
-subject:"فیزیک",
-text:"یکای اندازه‌گیری نیرو در دستگاه SI چیست؟",
-answer:"نیوتون (N)."
+lesson:"intro",type:"تشریحی",
+q:"چرا شناخت محیط زندگی و استان محل سکونت اهمیت دارد؟",
+a:"زیرا باعث شناخت توانایی‌ها، مشکلات، فرصت‌ها و تهدیدهای استان می‌شود و به پیدا کردن راه‌حل برای مسائل آن کمک می‌کند."
 },
 {
-subject:"شیمی",
-text:"اتم از چه ذرات اصلی تشکیل شده است؟",
-answer:"پروتون، نوترون و الکترون."
+lesson:"intro",type:"جای خالی",
+q:"شناخت همه‌جانبه استان باعث آگاهی از .......... و .......... آن می‌شود.",
+a:"فرصت‌ها و تهدیدها."
 },
 {
-subject:"زیست‌شناسی",
-text:"وظیفه اصلی میتوکندری در سلول چیست؟",
-answer:"میتوکندری در فرایند تولید انرژی قابل استفاده سلول نقش اساسی دارد."
+lesson:"intro",type:"صحیح و غلط",
+q:"شناخت ویژگی‌های فرهنگی و تاریخی استان می‌تواند باعث افزایش دلبستگی به زادگاه شود.",
+a:"صحیح."
 },
 {
-subject:"فارسی",
-text:"منظور از تشبیه چیست؟",
-answer:"تشبیه یعنی مانند کردن چیزی به چیز دیگر به دلیل داشتن ویژگی مشترک."
+lesson:"intro",type:"چهارگزینه‌ای",
+q:"کدام مورد از موضوعات مورد بررسی در کتاب استان‌شناسی است؟",
+options:["فقط ریاضیات","جغرافیا، تاریخ و فرهنگ استان","فقط نجوم","فقط شیمی"],
+correct:1,
+a:"گزینه ۲؛ جغرافیا، تاریخ و فرهنگ استان."
+},
+
+/* درس اول */
+
+{
+lesson:"lesson1",type:"تشریحی",important:true,
+q:"استان آذربایجان شرقی در کدام قسمت ایران قرار دارد؟",
+a:"در شمال غربی ایران."
 },
 {
-subject:"جغرافیا",
-text:"جغرافیا چه علمی است؟",
-answer:"علم بررسی پدیده‌های طبیعی و انسانی در سطح زمین و ارتباط میان آن‌ها."
+lesson:"lesson1",type:"تشریحی",
+q:"چرا آذربایجان شرقی از نظر ارتباطی اهمیت دارد؟",
+a:"زیرا از گذشته پل ارتباطی ایران با کشورهای منطقه قفقاز و اروپا بوده است."
+},
+{
+lesson:"lesson1",type:"جای خالی",
+q:"استان آذربایجان شرقی حدود .......... درصد از مساحت کشور را در بر می‌گیرد.",
+a:"۲٫۷ درصد."
+},
+{
+lesson:"lesson1",type:"چهارگزینه‌ای",
+q:"آذربایجان شرقی از نظر وسعت در چه رتبه‌ای قرار دارد؟",
+options:["پنجم","هشتم","یازدهم","پانزدهم"],
+correct:2,
+a:"گزینه ۳؛ یازدهمین استان کشور از نظر وسعت."
+},
+{
+lesson:"lesson1",type:"تشریحی",important:true,
+q:"مرزهای شمالی استان آذربایجان شرقی به وسیله کدام رود مشخص می‌شود؟",
+a:"رود ارس."
+},
+{
+lesson:"lesson1",type:"جای خالی",
+q:"استان آذربایجان شرقی با دو کشور .......... و .......... مرز مشترک دارد.",
+a:"جمهوری آذربایجان و ارمنستان."
+},
+{
+lesson:"lesson1",type:"چهارگزینه‌ای",
+q:"طول مرز استان با جمهوری آذربایجان چند کیلومتر است؟",
+options:["۴۵ کیلومتر","۲۰۲٫۲ کیلومتر","۱۰۰ کیلومتر","۲۴۷٫۲ کیلومتر"],
+correct:1,
+a:"گزینه ۲؛ ۲۰۲٫۲ کیلومتر."
+},
+{
+lesson:"lesson1",type:"تشریحی",
+q:"مختصات جغرافیایی استان آذربایجان شرقی بین چه طول‌ها و عرض‌هایی قرار دارد؟",
+a:"بین نصف‌النهارهای ۴۵ درجه و ۳۰ دقیقه تا ۴۷ درجه و ۴۳ دقیقه طول شرقی و مدارهای ۳۶ درجه و ۴۷ دقیقه تا ۳۸ درجه و ۴۲ دقیقه عرض شمالی."
+},
+{
+lesson:"lesson1",type:"صحیح و غلط",
+q:"استان آذربایجان شرقی در جنوب غربی ایران قرار دارد.",
+a:"غلط؛ این استان در شمال غربی ایران قرار دارد."
+},
+{
+lesson:"lesson1",type:"جای خالی",
+q:"مساحت استان آذربایجان شرقی حدود .......... کیلومتر مربع است.",
+a:"۴۵٬۴۹۰٫۸۸ کیلومتر مربع."
+},
+
+/* درس دوم */
+
+{
+lesson:"lesson2",type:"تشریحی",important:true,
+q:"فلات آذربایجان در کدام قسمت فلات ایران قرار گرفته است؟",
+a:"در شمال غربی فلات ایران."
+},
+{
+lesson:"lesson2",type:"تشریحی",
+q:"چه عواملی در شکل‌گیری ناهمواری‌های استان نقش داشته‌اند؟",
+a:"حرکات کوه‌زایی، فعالیت‌های آتشفشانی، چین‌خوردگی لایه‌های رسوبی، فرسایش و رسوب‌گذاری."
+},
+{
+lesson:"lesson2",type:"جای خالی",
+q:"مهم‌ترین و فعال‌ترین گسل استان، گسل .......... است.",
+a:"تبریز."
+},
+{
+lesson:"lesson2",type:"چهارگزینه‌ای",
+q:"چه درصدی از سطح استان را مناطق کوهستانی تشکیل می‌دهند؟",
+options:["۲۸٫۲ درصد","۳۱٫۸ درصد","۴۰ درصد","۵۰ درصد"],
+correct:2,
+a:"گزینه ۳؛ ۴۰ درصد."
+},
+{
+lesson:"lesson2",type:"تشریحی",important:true,
+q:"بلندترین نقطه استان آذربایجان شرقی کدام کوه است و چه ارتفاعی دارد؟",
+a:"کوه سهند با ارتفاع ۳۷۰۷ متر."
+},
+{
+lesson:"lesson2",type:"جای خالی",
+q:"کوه سهند در حدود .......... کیلومتری جنوب شهر تبریز قرار دارد.",
+a:"۴۰ کیلومتری."
+},
+{
+lesson:"lesson2",type:"تشریحی",
+q:"چند رود مهم که از دامنه‌های سهند سرچشمه می‌گیرند نام ببرید.",
+a:"صوفی‌چای، قرانقوچای، قلعه‌چای و اوجان."
+},
+{
+lesson:"lesson2",type:"چهارگزینه‌ای",
+q:"بلندترین قله قره‌داغ کدام است؟",
+options:["علی علمدار","کیامکی","سلطان ساوالان","قبله‌داغ"],
+correct:1,
+a:"گزینه ۲؛ کیامکی با ارتفاع ۳۴۱۴ متر."
+},
+{
+lesson:"lesson2",type:"تشریحی",
+q:"بلندترین قله رشته‌کوه میشو داغ چه نام دارد؟",
+a:"قله علی علمدار با ارتفاع ۳۱۵۵ متر."
+},
+{
+lesson:"lesson2",type:"جای خالی",
+q:"بلندترین نقطه رشته‌کوه بزقوش .......... متر ارتفاع دارد.",
+a:"۳۳۰۲ متر."
+},
+{
+lesson:"lesson2",type:"تشریحی",
+q:"دشت‌ها چگونه تشکیل می‌شوند؟",
+a:"دشت‌ها در میان کوهستان‌ها و بر اثر تجمع رسوبات ناشی از فرسایش کوه‌ها شکل می‌گیرند."
+},
+{
+lesson:"lesson2",type:"تشریحی",
+q:"چرا بیشتر سکونتگاه‌ها در دشت‌ها شکل گرفته‌اند؟",
+a:"زیرا دشت‌ها معمولاً زمین‌های هموارتر و خاک حاصلخیزتری دارند."
+},
+{
+lesson:"lesson2",type:"چهارگزینه‌ای",
+q:"جلگه‌های ساحلی دریاچه ارومیه بیشتر از چه چیزی تشکیل شده‌اند؟",
+options:["مواد آتشفشانی","آبرفت رودها","سنگ‌های آذرین","یخچال‌ها"],
+correct:1,
+a:"گزینه ۲؛ آبرفت رودها."
+},
+{
+lesson:"lesson2",type:"صحیح و غلط",
+q:"با حرکت از پای کوه به سوی دریاچه ارومیه، خاک جلگه‌ها شورتر می‌شود.",
+a:"صحیح."
+},
+{
+lesson:"lesson2",type:"تشریحی",important:true,
+q:"دو مورد از مخاطرات طبیعی مرتبط با ناهمواری‌های استان را نام ببرید.",
+a:"حرکات توده‌ای مانند لغزش و ریزش، و زمین‌لرزه ناشی از فعالیت گسل‌ها."
+},
+{
+lesson:"lesson2",type:"تشریحی",
+q:"چرا استان آذربایجان شرقی منطقه‌ای زلزله‌خیز محسوب می‌شود؟",
+a:"به دلیل وجود گسل‌های متعدد و فعالیت زمین‌ساختی در منطقه."
+},
+{
+lesson:"lesson2",type:"جای خالی",
+q:"زلزله ۲۱ مرداد ۱۳۹۱ در شهرستان‌های .......... و .......... رخ داد.",
+a:"اهر و ورزقان."
+},
+{
+lesson:"lesson2",type:"چهارگزینه‌ای",
+q:"کدام اقدام برای کاهش خسارات زلزله مناسب است؟",
+options:["ساخت‌وساز در مناطق پرخطر","بی‌توجهی به گسل‌ها","نظارت بر ساخت‌وسازها و پهنه‌بندی خطر","افزایش ساخت‌وساز در حریم گسل"],
+correct:2,
+a:"گزینه ۳؛ نظارت بر ساخت‌وسازها و پهنه‌بندی خطر."
+},
+
+/* درس سوم */
+
+{
+lesson:"lesson3",type:"تشریحی",important:true,
+q:"آب‌وهوای غالب استان آذربایجان شرقی چگونه است؟",
+a:"به دلیل کوهستانی بودن و قرار گرفتن در عرض‌های جغرافیایی متوسط، آب‌وهوای غالب استان نیمه‌خشک سرد است."
+},
+{
+lesson:"lesson3",type:"تشریحی",
+q:"چرا استان آذربایجان شرقی تنوع آب‌وهوایی دارد؟",
+a:"به علت تفاوت ارتفاع، جهت‌گیری کوه‌ها، ورود توده‌های هوا و نزدیکی یا دوری از منابع رطوبتی."
+},
+{
+lesson:"lesson3",type:"جای خالی",
+q:"یکی از توده‌های هوایی مؤثر بر آب‌وهوای استان، توده هوای .......... است.",
+a:"سیبری یا شمالی."
+},
+{
+lesson:"lesson3",type:"تشریحی",
+q:"سه مورد از عوامل محلی مؤثر بر آب‌وهوای استان را نام ببرید.",
+a:"ارتفاع از سطح دریا، ناهمواری‌ها و جهت‌گیری کوه‌ها، منابع رطوبتی، عرض جغرافیایی و پوشش گیاهی."
+},
+{
+lesson:"lesson3",type:"چهارگزینه‌ای",
+q:"ارتفاع گرما‌دوز در متن کتاب حدود چند متر ذکر شده است؟",
+options:["۱۶۰ متر","۳۷۰۷ متر","۳۱۵۵ متر","۴۸۱۱ متر"],
+correct:0,
+a:"گزینه ۱؛ حدود ۱۶۰ متر."
+},
+{
+lesson:"lesson3",type:"تشریحی",
+q:"عناصر اقلیمی را نام ببرید.",
+a:"بارش، دما، رطوبت، تعداد روزهای یخبندان، ساعات آفتابی، پوشش ابر، تبخیر و تعرق و وزش باد."
+},
+{
+lesson:"lesson3",type:"جای خالی",
+q:"رژیم بارندگی استان آذربایجان شرقی از نوع .......... است.",
+a:"مدیترانه‌ای."
+},
+{
+lesson:"lesson3",type:"چهارگزینه‌ای",
+q:"پرباران‌ترین فصل استان کدام است؟",
+options:["تابستان","پاییز","زمستان","بهار"],
+correct:3,
+a:"گزینه ۴؛ بهار."
+},
+{
+lesson:"lesson3",type:"تشریحی",important:true,
+q:"میانگین بارندگی سالانه استان حدود چند میلی‌متر است؟",
+a:"حدود ۳۲۵ میلی‌متر."
+},
+{
+lesson:"lesson3",type:"تشریحی",
+q:"بارش در کدام مناطق استان بیشتر است؟",
+a:"در ارتفاعات سهند، سبلان، بزقوش و تخت سلیمان."
+},
+{
+lesson:"lesson3",type:"جای خالی",
+q:"گرم‌ترین ماه سال در استان .......... و سردترین ماه سال .......... است.",
+a:"مرداد؛ بهمن."
+},
+{
+lesson:"lesson3",type:"صحیح و غلط",
+q:"بهمن گرم‌ترین ماه سال در استان آذربایجان شرقی است.",
+a:"غلط؛ مرداد گرم‌ترین و بهمن سردترین ماه سال است."
+},
+{
+lesson:"lesson3",type:"تشریحی",
+q:"مهم‌ترین مخاطرات جوی استان را نام ببرید.",
+a:"خشکسالی، هجوم توده‌های هوای سرد، تگرگ و سیل."
+},
+{
+lesson:"lesson3",type:"تشریحی",important:true,
+q:"چرا در برخی مناطق استان احتمال وقوع سیل وجود دارد؟",
+a:"به علت رگبارهای شدید، شرایط کوهستانی و طغیان رودخانه‌ها."
+},
+{
+lesson:"lesson3",type:"چهارگزینه‌ای",
+q:"کدام عامل می‌تواند خسارات ناشی از سیل را افزایش دهد؟",
+options:["حفظ پوشش گیاهی","ساخت‌وساز در حریم رودخانه‌ها","رعایت حریم رودخانه","مدیریت صحیح آب"],
+correct:1,
+a:"گزینه ۲؛ ساخت‌وساز در حریم رودخانه‌ها."
+},
+{
+lesson:"lesson3",type:"تشریحی",
+q:"توده هوای سرد در اوایل بهار چه خساراتی به همراه دارد؟",
+a:"می‌تواند به باغ‌ها و مزارع کشاورزی آسیب وارد کند."
+},
+{
+lesson:"lesson3",type:"صحیح و غلط",
+q:"تگرگ در ماه‌های گرم سال می‌تواند محصولات کشاورزی را تهدید کند.",
+a:"صحیح."
+},
+
+/* درس چهارم */
+
+{
+lesson:"lesson4",type:"تشریحی",important:true,
+q:"آب چه نقشی در زندگی انسان و شکل‌گیری تمدن‌ها دارد؟",
+a:"آب برای ادامه حیات انسان، آبادانی سرزمین‌ها و شکل‌گیری تمدن‌ها ضروری است. بسیاری از تمدن‌های نخستین در کنار منابع آب به وجود آمده‌اند."
+},
+{
+lesson:"lesson4",type:"صحیح و غلط",
+q:"حفاظت و استفاده اصولی از منابع آب فقط وظیفه دولت است.",
+a:"غلط؛ حفاظت و استفاده اصولی از آب وظیفه‌ای فردی و اجتماعی است."
+},
+{
+lesson:"lesson4",type:"تشریحی",
+q:"چرا برای تأمین آب آشامیدنی بعضی شهرهای استان از منابع خارج از استان استفاده می‌شود؟",
+a:"به دلیل محدودیت بارش و کمبود منابع آب در برخی مناطق استان."
+},
+{
+lesson:"lesson4",type:"جای خالی",
+q:"یکی از منابع تأمین آب بعضی شهرهای استان، انتقال آب .......... در آذربایجان غربی است.",
+a:"زرینه‌رود."
+},
+{
+lesson:"lesson4",type:"چهارگزینه‌ای",
+q:"آیه «وَجَعَلْنا مِنَ الْماءِ کُلَّ شَیْءٍ حَیّ» به چه موضوعی اشاره دارد؟",
+options:["اهمیت کوه‌ها","آفرینش موجودات زنده از آب","اهمیت جنگل‌ها","چرخه سنگ‌ها"],
+correct:1,
+a:"گزینه ۲؛ اهمیت آب در آفرینش و حیات موجودات زنده."
 }
+
 ];
 
-let currentFilter="همه";
+const lessonNames={
+ intro:"مقدمه و اهداف استان‌شناسی",
+ lesson1:"درس اول: موقعیت جغرافیایی",
+ lesson2:"درس دوم: ناهمواری‌های استان",
+ lesson3:"درس سوم: آب‌وهوای استان",
+ lesson4:"درس چهارم: منابع طبیعی استان"
+};
 
-function renderSubjects(){
-document.getElementById("subjects").innerHTML=
-subjects.map(s=>`
-<div class="subject" onclick="selectSubject('${s.name}')">
-<div class="icon">${s.icon}</div>
-<h3>${s.name}</h3>
-</div>`).join("");
-}
+let currentLesson="all";
 
-function renderFilters(){
-const names=["همه",...subjects.map(s=>s.name)];
-document.getElementById("filters").innerHTML=
-names.map(n=>`
-<button class="filter ${currentFilter===n?'active':''}"
-onclick="setFilter('${n}')">${n}</button>
-`).join("");
-}
+document.getElementById("totalQuestions").textContent=questions.length;
 
-function setFilter(name){
-currentFilter=name;
-renderFilters();
-renderQuestions();
-}
-
-function selectSubject(name){
-currentFilter=name;
-renderFilters();
-renderQuestions();
-document.querySelector(".section-title").scrollIntoView({behavior:"smooth"});
+function filterLesson(lesson,element){
+ currentLesson=lesson;
+ document.querySelectorAll(".subject-card").forEach(c=>c.classList.remove("active"));
+ if(element) element.classList.add("active");
+ document.getElementById("questionHeading").textContent=
+ lesson==="all"?"📝 همه سؤالات":"📝 "+lessonNames[lesson];
+ renderQuestions();
 }
 
 function renderQuestions(){
-const search=document.getElementById("search").value.trim();
-const result=questions.filter(q=>
-(currentFilter==="همه"||q.subject===currentFilter)&&
-(q.text.includes(search)||q.subject.includes(search))
-);
+ const search=document.getElementById("search").value.trim().toLowerCase();
+ const type=document.getElementById("typeFilter").value;
+ const box=document.getElementById("questions");
 
-document.getElementById("questions").innerHTML=result.length?
-result.map((q,i)=>`
-<div class="question">
-<span class="tag">${q.subject}</span>
-<h3>${q.text}</h3>
-<button class="show-answer" onclick="toggleAnswer(${questions.indexOf(q)})">مشاهده پاسخ</button>
-<div class="answer" id="answer-${questions.indexOf(q)}">${q.answer}</div>
-</div>
-`).join(""):'<div class="empty">سؤالی پیدا نشد!</div>';
+ const filtered=questions.filter(q=>{
+  const lessonMatch=currentLesson==="all"||q.lesson===currentLesson;
+  const typeMatch=type==="all"||q.type===type;
+  const searchMatch=(q.q+" "+q.a).toLowerCase().includes(search);
+  return lessonMatch&&typeMatch&&searchMatch;
+ });
+
+ if(filtered.length===0){
+  box.innerHTML='<div class="empty">سؤالی با این مشخصات پیدا نشد.</div>';
+  return;
+ }
+
+ box.innerHTML=filtered.map((q,i)=>{
+  let options="";
+  if(q.options){
+   options='<div class="options">'+q.options.map((op,j)=>
+    '<div class="option">'+(j+1)+') '+op+'</div>'
+   ).join("")+'</div>';
+  }
+
+  return `
+  <div class="question">
+   <div class="question-top">
+    <span class="question-type">${q.type} ${q.important?"⭐ مهم":""}</span>
+    <span class="question-number">سؤال ${i+1}</span>
+   </div>
+   <div class="lesson-tag">${lessonNames[q.lesson]}</div>
+   <h3>${q.q}</h3>
+   ${options}
+   <button class="answer-btn" onclick="toggleAnswer(this)">مشاهده پاسخ</button>
+   <div class="answer">${q.a}</div>
+  </div>`;
+ }).join("");
 }
 
-function toggleAnswer(id){
-const el=document.getElementById("answer-"+id);
-el.style.display=el.style.display==="block"?"none":"block";
+function toggleAnswer(btn){
+ const answer=btn.nextElementSibling;
+ answer.classList.toggle("show");
+ btn.textContent=answer.classList.contains("show")?"بستن پاسخ":"مشاهده پاسخ";
 }
 
-function toggleTheme(){
-document.body.classList.toggle("dark");
+function toggleDark(){
+ document.body.classList.toggle("dark");
+ localStorage.setItem("darkMode",document.body.classList.contains("dark"));
+}
+if(localStorage.getItem("darkMode")==="true"){
+ document.body.classList.add("dark");
 }
 
-const quiz=[
-{
-q:"حاصل ۵ × ۶ چند است؟",
-options:["۲۰","۳۰","۳۵","۴۰"],
-answer:1
-},
-{
-q:"نماد شیمیایی اکسیژن چیست؟",
-options:["O","H","N","C"],
-answer:0
-},
-{
-q:"کدام سیاره به سیاره سرخ معروف است؟",
-options:["زهره","مشتری","مریخ","عطارد"],
-answer:2
-}
-];
+function startQuiz(){
+ const quizQuestions=questions.filter(q=>q.type==="چهارگزینه‌ای");
+ const selected=quizQuestions.sort(()=>Math.random()-.5).slice(0,10);
+ window.activeQuiz=selected;
 
-let quizIndex=0;
-let score=0;
-let answered=false;
+ document.getElementById("quizBox").style.display="block";
+ document.getElementById("result").style.display="none";
 
-function renderQuiz(){
-const q=quiz[quizIndex];
-answered=false;
+ document.getElementById("quizQuestions").innerHTML=selected.map((q,i)=>`
+ <div class="quiz-question">
+  <p>${i+1}. ${q.q}</p>
+  ${q.options.map((op,j)=>`
+   <label>
+    <input type="radio" name="q${i}" value="${j}">
+    ${op}
+   </label>
+  `).join("")}
+ </div>
+ `).join("");
 
-document.getElementById("quizResult").innerText="";
-
-document.getElementById("quizQuestion").innerHTML=`
-<h3>${quizIndex+1}. ${q.q}</h3>
-${q.options.map((o,i)=>`
-<button class="option" onclick="checkAnswer(${i})">${o}</button>
-`).join("")}
-`;
+ document.getElementById("quizBox").scrollIntoView({behavior:"smooth"});
 }
 
-function checkAnswer(i){
-if(answered)return;
-answered=true;
+function checkQuiz(){
+ const quiz=window.activeQuiz;
+ if(!quiz||quiz.length===0)return;
 
-if(i===quiz[quizIndex].answer){
-score++;
-document.getElementById("quizResult").innerText="✅ آفرین! پاسخ درست است.";
-}else{
-document.getElementById("quizResult").innerText=
-"❌ پاسخ درست: "+quiz[quizIndex].options[quiz[quizIndex].answer];
-}
+ let score=0;
+ let unanswered=0;
+
+ quiz.forEach((q,i)=>{
+  const answer=document.querySelector(`input[name="q${i}"]:checked`);
+  if(!answer)unanswered++;
+  else if(Number(answer.value)===q.correct)score++;
+ });
+
+ if(unanswered>0){
+  alert("لطفاً به تمام سؤالات پاسخ بده.");
+  return;
+ }
+
+ const result=document.getElementById("result");
+ result.style.display="block";
+ result.innerHTML=`
+  <h3>نتیجه آزمون شما</h3>
+  <strong>${score*2} از ۲۰</strong>
+  <p>تعداد پاسخ‌های درست: ${score} از ${quiz.length}</p>
+  <p>${score>=8?"آفرین! عملکرد خوبی داشتی.":"با مرور درس‌ها می‌توانی نتیجه بهتری بگیری."}</p>
+  <button class="secondary" onclick="startQuiz()">آزمون مجدد</button>
+ `;
+ result.scrollIntoView({behavior:"smooth"});
 }
 
-function nextQuiz(){
-quizIndex++;
-if(quizIndex>=quiz.length){
-document.getElementById("quizQuestion").innerHTML=
-"<h3>آزمون تمام شد!</h3><p>امتیاز شما: "+score+" از "+quiz.length+"</p>";
-document.getElementById("quizResult").innerText="";
-quizIndex=0;
-score=0;
-return;
-}
-renderQuiz();
-}
-
-renderSubjects();
-renderFilters();
 renderQuestions();
-renderQuiz();
 
-</script></body>
-  </html>
+</script>
+</body>
+</html>
