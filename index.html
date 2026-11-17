@@ -3,740 +3,833 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#101827">
-<title>کلاس دهم | استان‌شناسی آذربایجان شرقی</title>
+<meta name="theme-color" content="#14243a">
+<title>کتابخانه آموزشی کلاس دهم</title>
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap');
 
 :root{
-  --bg:#f2f5fa;
-  --card:#ffffff;
-  --text:#172033;
-  --muted:#68758a;
-  --primary:#2563eb;
-  --primary2:#1d4ed8;
-  --border:#e2e8f0;
-  --green:#16a34a;
-  --red:#dc2626;
-  --shadow:0 8px 25px rgba(20,35,70,.07);
-}
-body.dark{
-  --bg:#0d1422;
-  --card:#172235;
-  --text:#edf3ff;
-  --muted:#a5b2c7;
-  --primary:#60a5fa;
-  --primary2:#3b82f6;
-  --border:#2b3a51;
-  --shadow:0 8px 25px rgba(0,0,0,.2);
+ --bg:#f3f5f8;
+ --card:#fff;
+ --text:#202b3c;
+ --muted:#778296;
+ --border:#e5e9ef;
+ --shadow:0 12px 35px #172b4610;
 }
 *{box-sizing:border-box}
 body{
-  margin:0;
-  background:var(--bg);
-  color:var(--text);
-  font-family:'Vazirmatn',Tahoma,sans-serif;
-  transition:.25s;
+ margin:0;
+ font-family:Vazirmatn,Tahoma,sans-serif;
+ background:var(--bg);
+ color:var(--text);
+ transition:.3s;
 }
 button,input,select{font-family:inherit}
-header{
-  background:linear-gradient(135deg,#101827,#1e3a70,#2563eb);
-  color:white;
-  padding:32px 18px 38px;
-  text-align:center;
-  border-radius:0 0 28px 28px;
+button{cursor:pointer}
+.hidden{display:none!important}
+
+/* صفحه اصلی */
+
+.home{
+ min-height:100vh;
+ padding-bottom:40px;
+ background:
+ radial-gradient(circle at 10% 10%,#d8e8fa 0,transparent 30%),
+ radial-gradient(circle at 90% 70%,#e5e0f5 0,transparent 30%),
+ #f6f8fc;
 }
-.header-label{
-  display:inline-block;
-  padding:6px 13px;
-  border:1px solid #ffffff55;
-  border-radius:30px;
-  font-size:12px;
-  margin-bottom:12px;
+.home-header{
+ text-align:center;
+ padding:65px 20px 40px;
 }
-header h1{margin:5px 0;font-size:27px}
-header p{margin:8px 0 0;color:#dbeafe;font-size:13px}
-.container{max-width:1050px;margin:auto;padding:18px}
-.stats{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:10px;
-  margin-top:-20px;
-  position:relative;
+.home-logo{
+ width:75px;height:75px;
+ display:grid;place-items:center;
+ margin:auto auto 20px;
+ border-radius:25px;
+ background:#172b46;
+ color:white;
+ font-size:35px;
+ box-shadow:0 12px 30px #172b4640;
+}
+.home-header h1{
+ font-size:30px;
+ margin:0;
+ color:#172b46;
+}
+.home-header p{
+ color:#6d7b90;
+ line-height:2;
+ font-size:14px;
+ max-width:550px;
+ margin:12px auto;
+}
+.home-label{
+ display:inline-block;
+ background:#e4ecf8;
+ color:#315a8a;
+ padding:7px 15px;
+ border-radius:30px;
+ font-size:12px;
+ margin-bottom:15px;
+}
+.book-grid{
+ max-width:950px;
+ margin:20px auto;
+ padding:15px;
+ display:grid;
+ grid-template-columns:repeat(2,1fr);
+ gap:22px;
+}
+.book-card{
+ border-radius:26px;
+ overflow:hidden;
+ background:white;
+ box-shadow:0 15px 40px #14243a13;
+ transition:.25s;
+ cursor:pointer;
+ border:1px solid #ffffff;
+}
+.book-card:hover{
+ transform:translateY(-7px);
+ box-shadow:0 20px 45px #14243a20;
+}
+.book-cover{
+ min-height:230px;
+ padding:25px;
+ display:flex;
+ flex-direction:column;
+ justify-content:space-between;
+ color:white;
+ position:relative;
+ overflow:hidden;
+}
+.book-cover:after{
+ content:"";
+ position:absolute;
+ width:220px;height:220px;
+ border:1px solid #ffffff35;
+ border-radius:50%;
+ left:-65px;bottom:-120px;
+}
+.province-cover{
+ background:linear-gradient(145deg,#0b5960,#168b79,#61a88c);
+}
+.persian-cover{
+ background:linear-gradient(145deg,#603c2c,#956344,#c59b72);
+}
+.book-icon{
+ font-size:45px;
+ position:relative;
+ z-index:1;
+}
+.book-cover h2{
+ font-size:21px;
+ margin:0;
+ position:relative;
+ z-index:1;
+}
+.book-cover p{
+ font-size:12px;
+ color:#ffffffd9;
+ margin:7px 0 0;
+ position:relative;
+ z-index:1;
+}
+.book-info{padding:20px}
+.book-info p{
+ color:var(--muted);
+ font-size:13px;
+ line-height:2;
+ margin:0 0 15px;
+}
+.open-book{
+ width:100%;
+ border:0;
+ border-radius:12px;
+ padding:13px;
+ color:white;
+ font-weight:800;
+ background:#172b46;
+}
+.province-card .open-book{background:#08786b}
+.persian-card .open-book{background:#815538}
+.home-footer{
+ text-align:center;
+ padding:30px 15px;
+ color:#8994a5;
+ font-size:12px;
+}
+
+/* محیط کتاب */
+
+.app-header{
+ color:white;
+ padding:22px 18px 25px;
+}
+.province-theme .app-header{
+ background:linear-gradient(130deg,#064e55,#087d70,#36a58a);
+}
+.persian-theme .app-header{
+ background:linear-gradient(130deg,#503426,#815538,#ad805d);
+}
+.topbar{
+ max-width:1050px;
+ margin:auto;
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ gap:10px;
+}
+.back-button{
+ background:#ffffff20;
+ border:1px solid #ffffff50;
+ color:white;
+ padding:9px 13px;
+ border-radius:11px;
+}
+.app-title{
+ max-width:1050px;
+ margin:28px auto 0;
+}
+.app-title h1{font-size:25px;margin:0 0 8px}
+.app-title p{font-size:12px;color:#ffffffd0;margin:0}
+.app-container{
+ max-width:1050px;
+ margin:auto;
+ padding:18px;
+}
+.app-stats{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:10px;
+ margin-top:-4px;
 }
 .stat{
-  background:var(--card);
-  padding:16px 8px;
-  text-align:center;
-  border-radius:16px;
-  box-shadow:var(--shadow);
+ background:var(--card);
+ border-radius:15px;
+ text-align:center;
+ padding:14px 6px;
+ box-shadow:var(--shadow);
 }
-.stat strong{display:block;font-size:22px;color:var(--primary)}
+.stat strong{
+ display:block;
+ font-size:21px;
+ color:var(--accent);
+}
 .stat span{font-size:11px;color:var(--muted)}
-.toolbar{
-  display:flex;
-  gap:9px;
-  flex-wrap:wrap;
-  margin:24px 0 16px;
-}
-input,select{
-  background:var(--card);
-  color:var(--text);
-  border:1px solid var(--border);
-  border-radius:12px;
-  padding:12px;
-  outline:none;
-  min-width:0;
-}
-#search{flex:1;min-width:180px}
-button{
-  border:0;
-  cursor:pointer;
-  border-radius:12px;
-  padding:11px 15px;
-  font-weight:700;
-}
-.primary{background:var(--primary);color:white}
-.primary:hover{background:var(--primary2)}
-.secondary{
-  background:var(--card);
-  color:var(--text);
-  border:1px solid var(--border);
-}
 .section-title{
-  margin:27px 0 13px;
-  font-size:18px;
-  font-weight:800;
+ font-size:18px;
+ font-weight:800;
+ margin:28px 0 14px;
 }
-.subject-card{
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:17px;
-  padding:17px;
-  margin-bottom:12px;
-  box-shadow:var(--shadow);
+.lesson-grid{
+ display:grid;
+ grid-template-columns:repeat(2,1fr);
+ gap:10px;
 }
-.subject-card h3{margin:0 0 6px;font-size:16px}
-.subject-card p{margin:0;color:var(--muted);font-size:12px}
-.subject-card.active{border:2px solid var(--primary)}
-.lesson-tag{
-  display:inline-block;
-  background:#dbeafe;
-  color:#1d4ed8;
-  padding:4px 9px;
-  border-radius:20px;
-  font-size:11px;
-  margin-bottom:9px;
+.lesson-card{
+ background:var(--card);
+ border:1px solid var(--border);
+ border-radius:15px;
+ padding:15px;
+ cursor:pointer;
+ transition:.2s;
 }
-body.dark .lesson-tag{background:#203e69;color:#bfdbfe}
-.question{
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:15px;
-  padding:15px;
-  margin:11px 0;
-  box-shadow:var(--shadow);
+.lesson-card:hover{transform:translateY(-3px)}
+.lesson-card.active{
+ border:2px solid var(--accent);
 }
-.question-top{
-  display:flex;
-  justify-content:space-between;
-  gap:10px;
-  align-items:center;
-  margin-bottom:10px;
+.lesson-card h3{font-size:14px;margin:0 0 7px}
+.lesson-card p{font-size:11px;color:var(--muted);margin:0;line-height:1.9}
+.toolbar{
+ display:flex;
+ flex-wrap:wrap;
+ gap:9px;
+ margin:15px 0;
 }
-.question-type{
-  font-size:11px;
-  color:var(--primary);
-  font-weight:700;
+.toolbar input,.toolbar select{
+ flex:1;
+ min-width:140px;
+ padding:12px;
+ border:1px solid var(--border);
+ border-radius:11px;
+ background:var(--card);
+ color:var(--text);
+ outline:none;
 }
-.question-number{font-size:11px;color:var(--muted)}
-.question h3{font-size:14px;line-height:2;margin:5px 0 12px}
+.main-btn{
+ border:0;
+ background:var(--accent);
+ color:white;
+ padding:11px 16px;
+ border-radius:11px;
+ font-weight:700;
+}
+.soft-btn{
+ background:var(--card);
+ border:1px solid var(--border);
+ color:var(--text);
+ padding:10px 13px;
+ border-radius:11px;
+}
+.note-card,.question-card,.quiz-card{
+ background:var(--card);
+ border:1px solid var(--border);
+ border-radius:15px;
+ padding:16px;
+ margin:11px 0;
+ box-shadow:var(--shadow);
+}
+.note-card h3{font-size:15px;margin:0 0 10px}
+.note-card p{
+ font-size:13px;
+ line-height:2.2;
+ color:var(--muted);
+ margin:0;
+}
+.tag{
+ display:inline-block;
+ background:var(--tagbg);
+ color:var(--accent);
+ border-radius:20px;
+ padding:4px 9px;
+ font-size:10px;
+ margin-bottom:9px;
+}
+.question-card h3{
+ font-size:14px;
+ line-height:2.1;
+ margin:8px 0 12px;
+}
+.question-meta{
+ display:flex;
+ justify-content:space-between;
+ color:var(--muted);
+ font-size:11px;
+}
 .answer{
-  display:none;
-  background:rgba(22,163,74,.09);
-  border-right:3px solid var(--green);
-  padding:12px;
-  border-radius:9px;
-  line-height:2;
-  font-size:13px;
-  margin-top:12px;
+ display:none;
+ margin-top:12px;
+ padding:12px;
+ border-radius:10px;
+ background:var(--answerbg);
+ border-right:3px solid var(--accent);
+ font-size:13px;
+ line-height:2.1;
 }
 .answer.show{display:block}
 .answer-btn{
-  background:transparent;
-  border:1px solid var(--border);
-  color:var(--primary);
-  padding:8px 12px;
-  font-size:12px;
+ border:1px solid var(--border);
+ color:var(--accent);
+ background:transparent;
+ padding:8px 12px;
+ border-radius:9px;
+ font-size:12px;
 }
-.options{
-  display:grid;
-  gap:8px;
-  margin:12px 0;
-}
+.options{display:grid;gap:7px}
 .option{
-  background:var(--bg);
-  border:1px solid var(--border);
-  padding:10px;
-  border-radius:10px;
-  font-size:13px;
+ background:var(--bg);
+ padding:9px;
+ border-radius:9px;
+ font-size:12px;
 }
-.empty{
-  text-align:center;
-  color:var(--muted);
-  padding:30px;
+.empty{text-align:center;padding:25px;color:var(--muted)}
+.quiz-card p{font-size:14px;line-height:2}
+.quiz-card label{
+ display:block;
+ padding:10px;
+ margin:7px 0;
+ border-radius:9px;
+ background:var(--bg);
+ font-size:12px;
+ cursor:pointer;
 }
-#quizBox{display:none}
-.quiz-question{
-  background:var(--card);
-  padding:17px;
-  border-radius:15px;
-  margin:12px 0;
-  border:1px solid var(--border);
+.quiz-card input{margin-left:8px}
+.result{
+ display:none;
+ background:var(--card);
+ border-radius:15px;
+ padding:20px;
+ margin-top:15px;
+ text-align:center;
 }
-.quiz-question p{font-weight:700;line-height:2}
-.quiz-question label{
-  display:block;
-  padding:10px;
-  margin:7px 0;
-  background:var(--bg);
-  border-radius:9px;
-  font-size:13px;
-  cursor:pointer;
+.result strong{font-size:30px;color:var(--accent)}
+.book-footer{
+ text-align:center;
+ padding:28px 10px;
+ color:var(--muted);
+ font-size:12px;
+ line-height:2.3;
 }
-.quiz-question input{margin-left:7px}
-#result{
-  display:none;
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:15px;
-  padding:20px;
-  text-align:center;
-  margin:15px 0;
-}
-#result strong{font-size:28px;color:var(--green)}
-footer{
-  margin-top:35px;
-  background:#101827;
-  color:#cbd5e1;
-  padding:25px 15px;
-  text-align:center;
-  font-size:12px;
-  line-height:2.3;
-}
-footer a{color:#60a5fa;text-decoration:none;font-weight:800}
-footer .copyright{color:#94a3b8;font-size:11px}
-@media(max-width:550px){
-  header h1{font-size:22px}
-  .container{padding:13px}
-  .toolbar>*{width:100%}
-  .stats{gap:7px}
+.book-footer a{color:var(--accent);text-decoration:none;font-weight:800}
+
+@media(max-width:650px){
+ .book-grid{grid-template-columns:1fr;max-width:440px}
+ .home-header{padding-top:40px}
+ .home-header h1{font-size:24px}
+ .book-cover{min-height:190px}
+ .lesson-grid{grid-template-columns:1fr}
+ .app-title h1{font-size:20px}
 }
 </style>
 </head>
 
 <body>
 
-<header>
-  <div class="header-label">سامانه آموزشی کلاس دهم</div>
-  <h1>📚 استان‌شناسی آذربایجان شرقی</h1>
-  <p>بانک سؤالات، پاسخ‌نامه و آزمون آنلاین</p>
-</header>
+<!-- صفحه انتخاب کتاب -->
 
-<div class="container">
-
-  <div class="stats">
-    <div class="stat">
-      <strong id="totalQuestions">0</strong>
-      <span>مجموع سؤالات</span>
-    </div>
-    <div class="stat">
-      <strong>۴</strong>
-      <span>درس و بخش آموزشی</span>
-    </div>
-    <div class="stat">
-      <strong>۴</strong>
-      <span>نوع سؤال</span>
-    </div>
-  </div>
-
-  <div class="section-title">📖 فهرست درس‌ها</div>
-
-  <div class="subject-card active" onclick="filterLesson('all',this)">
-    <h3>همه سؤالات</h3>
-    <p>نمایش تمام سؤالات بانک</p>
-  </div>
-
-  <div class="subject-card" onclick="filterLesson('intro',this)">
-    <h3>مقدمه و اهداف استان‌شناسی</h3>
-    <p>آشنایی با اهداف کتاب و اهمیت شناخت استان</p>
-  </div>
-
-  <div class="subject-card" onclick="filterLesson('lesson1',this)">
-    <h3>درس اول: موقعیت جغرافیایی و وسعت استان</h3>
-    <p>موقعیت، مساحت، مختصات و مرزهای استان</p>
-  </div>
-
-  <div class="subject-card" onclick="filterLesson('lesson2',this)">
-    <h3>درس دوم: ناهمواری‌های استان</h3>
-    <p>کوهستان‌ها، دشت‌ها، جلگه‌ها و مخاطرات</p>
-  </div>
-
-  <div class="subject-card" onclick="filterLesson('lesson3',this)">
-    <h3>درس سوم: آب‌وهوای استان</h3>
-    <p>عوامل اقلیمی، بارش، دما و مخاطرات جوی</p>
-  </div>
-
-  <div class="subject-card" onclick="filterLesson('lesson4',this)">
-    <h3>درس چهارم: منابع طبیعی استان</h3>
-    <p>بخش منابع آب بر اساس متن دریافت‌شده</p>
-  </div>
-
-  <div class="section-title">🔎 جست‌وجو و دسته‌بندی</div>
-
-  <div class="toolbar">
-    <input id="search" type="text" placeholder="جست‌وجو در سؤالات..." oninput="renderQuestions()">
-    <select id="typeFilter" onchange="renderQuestions()">
-      <option value="all">همه نوع سؤالات</option>
-      <option value="تشریحی">تشریحی و کوتاه‌پاسخ</option>
-      <option value="جای خالی">جای خالی</option>
-      <option value="صحیح و غلط">صحیح و غلط</option>
-      <option value="چهارگزینه‌ای">چهارگزینه‌ای</option>
-    </select>
-    <button class="secondary" onclick="toggleDark()">🌙 حالت شب</button>
-  </div>
-
-  <div class="section-title" id="questionHeading">📝 بانک سؤالات</div>
-  <div id="questions"></div>
-
-  <div class="section-title">🎯 آزمون آنلاین</div>
-  <p style="font-size:13px;color:var(--muted);line-height:2">
-    در این بخش به سؤالات چهارگزینه‌ای پاسخ بده و در پایان نمره خودت را مشاهده کن.
+<section id="home" class="home">
+ <div class="home-header">
+  <div class="home-logo">📚</div>
+  <div class="home-label">سامانه یادگیری و مرور دروس</div>
+  <h1>کتابخانه آموزشی کلاس دهم</h1>
+  <p>
+   یادگیری را ساده‌تر، منظم‌تر و لذت‌بخش‌تر تجربه کن.
+   کتاب موردنظرت را انتخاب کن و وارد دنیای یادگیری شو.
   </p>
-  <button class="primary" onclick="startQuiz()">شروع آزمون</button>
+ </div>
 
-  <div id="quizBox">
-    <div id="quizQuestions"></div>
-    <button class="primary" onclick="checkQuiz()">ثبت پاسخ‌ها و مشاهده نتیجه</button>
-    <div id="result"></div>
+ <div class="book-grid">
+
+  <div class="book-card province-card" onclick="openBook('province')">
+   <div class="book-cover province-cover">
+    <div class="book-icon">🏞️</div>
+    <div>
+     <h2>استان‌شناسی آذربایجان شرقی</h2>
+     <p>جغرافیا، طبیعت، تاریخ و شناخت سرزمین</p>
+    </div>
+   </div>
+   <div class="book-info">
+    <p>
+     خلاصه درس‌ها، نکات مهم، پرسش‌های امتحانی،
+     نمونه سؤال و آزمون آنلاین استان‌شناسی.
+    </p>
+    <button class="open-book">ورود به کتاب ←</button>
+   </div>
   </div>
 
-</div>
+  <div class="book-card persian-card" onclick="openBook('persian')">
+   <div class="book-cover persian-cover">
+    <div class="book-icon">📜</div>
+    <div>
+     <h2>فارسی دهم</h2>
+     <p>قلمرو زبانی، ادبی و فکری</p>
+    </div>
+   </div>
+   <div class="book-info">
+    <p>
+     خلاصه درس‌ها، معنی واژگان، آرایه‌های ادبی،
+     نکات دستوری و سؤال‌های امتحانی فارسی.
+    </p>
+    <button class="open-book">ورود به کتاب ←</button>
+   </div>
+  </div>
 
-<footer>
-  <div>طراحی و توسعه سامانه آموزشی کلاس دهم</div>
-  <div>متعلق به <a href="#" onclick="alert('برای اتصال به شاد، لینک مستقیم پروفایل باید جایگزین شود.');return false;">@Arzda_1</a> است</div>
-  <div class="copyright">© تمامی حقوق این وب‌سایت محفوظ است.</div>
-</footer>
+ </div>
+
+ <div class="home-footer">
+  متعلق به <a href="#" style="color:#315a8a;text-decoration:none">@Arzda_1</a> است
+  <br>طراحی سامانه آموزشی کلاس دهم
+ </div>
+</section>
+
+
+<!-- محیط اختصاصی کتاب -->
+
+<section id="bookApp" class="hidden">
+ <div id="appTheme" class="province-theme">
+
+  <header class="app-header">
+   <div class="topbar">
+    <button class="back-button" onclick="goHome()">← صفحه اصلی</button>
+    <span>کتابخانه آموزشی</span>
+   </div>
+   <div class="app-title">
+    <h1 id="bookTitle"></h1>
+    <p id="bookSubtitle"></p>
+   </div>
+  </header>
+
+  <main class="app-container">
+
+   <div class="app-stats">
+    <div class="stat">
+     <strong id="questionCount">۰</strong>
+     <span>سؤال آموزشی</span>
+    </div>
+    <div class="stat">
+     <strong id="lessonCount">۰</strong>
+     <span>بخش آموزشی</span>
+    </div>
+    <div class="stat">
+     <strong>۴</strong>
+     <span>نوع سؤال</span>
+    </div>
+   </div>
+
+   <div class="section-title">📚 فهرست درس‌ها</div>
+   <div id="lessonList" class="lesson-grid"></div>
+
+   <div class="section-title">✨ خلاصه و نکات درسی</div>
+   <div id="notes"></div>
+
+   <div class="section-title">📝 بانک سؤالات امتحانی</div>
+   <div class="toolbar">
+    <input id="search" placeholder="جست‌وجو در سؤال‌ها..." oninput="renderQuestions()">
+    <select id="typeFilter" onchange="renderQuestions()">
+     <option value="all">همه سؤال‌ها</option>
+     <option value="تشریحی">تشریحی</option>
+     <option value="جای خالی">جای خالی</option>
+     <option value="صحیح و غلط">صحیح و غلط</option>
+     <option value="چهارگزینه‌ای">چهارگزینه‌ای</option>
+    </select>
+   </div>
+   <div id="questions"></div>
+
+   <div class="section-title">🎯 آزمون آنلاین</div>
+   <p style="font-size:12px;color:var(--muted);line-height:2">
+    با شرکت در آزمون، میزان یادگیری خودت را بسنج.
+   </p>
+   <button class="main-btn" onclick="startQuiz()">شروع آزمون</button>
+   <div id="quizBox" class="hidden">
+    <div id="quizQuestions"></div>
+    <button class="main-btn" onclick="checkQuiz()">ثبت پاسخ‌ها</button>
+    <div id="result" class="result"></div>
+   </div>
+
+  </main>
+
+  <footer class="book-footer">
+   <div>سامانه آموزشی کلاس دهم</div>
+   <div>متعلق به <a href="#" onclick="alert('لینک مستقیم شاد هنوز تنظیم نشده است.');return false;">@Arzda_1</a> است</div>
+  </footer>
+ </div>
+</section>
+
 
 <script>
 
-const questions = [
+/* ===========================
+   داده‌های کتاب‌ها
+=========================== */
 
-/* مقدمه */
+const books={
 
-{
-lesson:"intro",type:"تشریحی",important:true,
-q:"هدف اصلی کتاب استان‌شناسی چیست؟",
-a:"آشنا کردن دانش‌آموزان با ویژگی‌های جغرافیایی، تاریخی، اجتماعی، اقتصادی و فرهنگی استان محل زندگی و پرورش شهروندی آگاه و مسئول."
-},
-{
-lesson:"intro",type:"تشریحی",
-q:"چرا شناخت محیط زندگی و استان محل سکونت اهمیت دارد؟",
-a:"زیرا باعث شناخت توانایی‌ها، مشکلات، فرصت‌ها و تهدیدهای استان می‌شود و به پیدا کردن راه‌حل برای مسائل آن کمک می‌کند."
-},
-{
-lesson:"intro",type:"جای خالی",
-q:"شناخت همه‌جانبه استان باعث آگاهی از .......... و .......... آن می‌شود.",
-a:"فرصت‌ها و تهدیدها."
-},
-{
-lesson:"intro",type:"صحیح و غلط",
-q:"شناخت ویژگی‌های فرهنگی و تاریخی استان می‌تواند باعث افزایش دلبستگی به زادگاه شود.",
-a:"صحیح."
-},
-{
-lesson:"intro",type:"چهارگزینه‌ای",
-q:"کدام مورد از موضوعات مورد بررسی در کتاب استان‌شناسی است؟",
-options:["فقط ریاضیات","جغرافیا، تاریخ و فرهنگ استان","فقط نجوم","فقط شیمی"],
-correct:1,
-a:"گزینه ۲؛ جغرافیا، تاریخ و فرهنگ استان."
-},
-
-/* درس اول */
-
-{
-lesson:"lesson1",type:"تشریحی",important:true,
-q:"استان آذربایجان شرقی در کدام قسمت ایران قرار دارد؟",
-a:"در شمال غربی ایران."
-},
-{
-lesson:"lesson1",type:"تشریحی",
-q:"چرا آذربایجان شرقی از نظر ارتباطی اهمیت دارد؟",
-a:"زیرا از گذشته پل ارتباطی ایران با کشورهای منطقه قفقاز و اروپا بوده است."
-},
-{
-lesson:"lesson1",type:"جای خالی",
-q:"استان آذربایجان شرقی حدود .......... درصد از مساحت کشور را در بر می‌گیرد.",
-a:"۲٫۷ درصد."
-},
-{
-lesson:"lesson1",type:"چهارگزینه‌ای",
-q:"آذربایجان شرقی از نظر وسعت در چه رتبه‌ای قرار دارد؟",
-options:["پنجم","هشتم","یازدهم","پانزدهم"],
-correct:2,
-a:"گزینه ۳؛ یازدهمین استان کشور از نظر وسعت."
-},
-{
-lesson:"lesson1",type:"تشریحی",important:true,
-q:"مرزهای شمالی استان آذربایجان شرقی به وسیله کدام رود مشخص می‌شود؟",
-a:"رود ارس."
-},
-{
-lesson:"lesson1",type:"جای خالی",
-q:"استان آذربایجان شرقی با دو کشور .......... و .......... مرز مشترک دارد.",
-a:"جمهوری آذربایجان و ارمنستان."
-},
-{
-lesson:"lesson1",type:"چهارگزینه‌ای",
-q:"طول مرز استان با جمهوری آذربایجان چند کیلومتر است؟",
-options:["۴۵ کیلومتر","۲۰۲٫۲ کیلومتر","۱۰۰ کیلومتر","۲۴۷٫۲ کیلومتر"],
-correct:1,
-a:"گزینه ۲؛ ۲۰۲٫۲ کیلومتر."
-},
-{
-lesson:"lesson1",type:"تشریحی",
-q:"مختصات جغرافیایی استان آذربایجان شرقی بین چه طول‌ها و عرض‌هایی قرار دارد؟",
-a:"بین نصف‌النهارهای ۴۵ درجه و ۳۰ دقیقه تا ۴۷ درجه و ۴۳ دقیقه طول شرقی و مدارهای ۳۶ درجه و ۴۷ دقیقه تا ۳۸ درجه و ۴۲ دقیقه عرض شمالی."
-},
-{
-lesson:"lesson1",type:"صحیح و غلط",
-q:"استان آذربایجان شرقی در جنوب غربی ایران قرار دارد.",
-a:"غلط؛ این استان در شمال غربی ایران قرار دارد."
-},
-{
-lesson:"lesson1",type:"جای خالی",
-q:"مساحت استان آذربایجان شرقی حدود .......... کیلومتر مربع است.",
-a:"۴۵٬۴۹۰٫۸۸ کیلومتر مربع."
+province:{
+ title:"استان‌شناسی آذربایجان شرقی",
+ subtitle:"شناخت جغرافیا، طبیعت و ویژگی‌های استان",
+ theme:"province-theme",
+ accent:"#087d70",
+ tagbg:"#dff3ed",
+ answerbg:"#e8f6f0",
+ lessons:[
+  {id:"p0",name:"مقدمه و اهداف استان‌شناسی",desc:"هدف و اهمیت شناخت استان"},
+  {id:"p1",name:"درس اول: موقعیت و وسعت",desc:"موقعیت، مساحت، مختصات و مرزها"},
+  {id:"p2",name:"درس دوم: ناهمواری‌ها",desc:"کوه‌ها، دشت‌ها و مخاطرات"},
+  {id:"p3",name:"درس سوم: آب‌وهوا",desc:"عوامل اقلیمی، بارش و دما"},
+  {id:"p4",name:"درس چهارم: منابع طبیعی",desc:"منابع آب بر اساس متن دریافت‌شده"}
+ ],
+ notes:[
+  ["p0","هدف استان‌شناسی","کتاب استان‌شناسی ما را با ویژگی‌های جغرافیایی، تاریخی، اجتماعی، اقتصادی و فرهنگی محل زندگی آشنا می‌کند. شناخت توانایی‌ها و مشکلات استان، به پیدا کردن راه‌حل و تبدیل تهدیدها به فرصت کمک می‌کند."],
+  ["p1","موقعیت و وسعت استان","آذربایجان شرقی در شمال غرب ایران قرار دارد و از گذشته پل ارتباطی ایران با منطقه قفقاز و اروپا بوده است. مساحت آن حدود ۴۵٬۴۹۰٫۸۸ کیلومتر مربع و برابر با ۲٫۷ درصد مساحت کشور است. این استان از نظر وسعت رتبه یازدهم را دارد. مرز شمالی آن با رود ارس مشخص می‌شود."],
+  ["p2","ساختار ناهمواری‌ها","ناهمواری‌های استان بر اثر حرکات کوه‌زایی، فعالیت آتشفشانی، چین‌خوردگی و فرسایش شکل گرفته‌اند. حدود ۴۰ درصد استان کوهستانی، ۲۸٫۲ درصد تپه‌ماهور و ۳۱٫۸ درصد هموار است. سهند با ارتفاع ۳۷۰۷ متر بلندترین نقطه استان است."],
+  ["p2","کوهستان‌ها و دشت‌ها","از واحدهای کوهستانی استان می‌توان سهند، قره‌داغ، میشو داغ، مورو داغ، قوشاداغ، سبالان، بزقوش و تخت سلیمان را نام برد. دشت‌ها از رسوبات فرسایش‌یافته کوه‌ها تشکیل شده‌اند و معمولاً خاک حاصلخیز دارند. جلگه‌های ساحلی دریاچه ارومیه نیز از آبرفت رودها به وجود آمده‌اند."],
+  ["p2","مخاطرات طبیعی","لغزش و ریزش دامنه‌ها و زمین‌لرزه از مخاطرات مهم استان هستند. وجود گسل‌های متعدد، به‌ویژه گسل فعال تبریز، خطر زلزله را افزایش می‌دهد. پهنه‌بندی خطر و نظارت بر ساخت‌وسازها در کاهش خسارات اهمیت دارد."],
+  ["p3","آب‌وهوای استان","آب‌وهوای غالب استان نیمه‌خشک سرد است. ارتفاع، جهت کوه‌ها، عرض جغرافیایی، توده‌های هوا، منابع رطوبتی و پوشش گیاهی در تنوع آب‌وهوایی نقش دارند."],
+  ["p3","بارش و دما","رژیم بارندگی استان مدیترانه‌ای است. بهار پرباران‌ترین فصل و مرداد گرم‌ترین ماه سال است؛ بهمن نیز سردترین ماه به شمار می‌رود. میانگین بارندگی سالانه حدود ۳۲۵ میلی‌متر است."],
+  ["p3","مخاطرات جوی","خشکسالی، توده‌های هوای سرد، تگرگ و سیل از مخاطرات جوی استان هستند. ساخت‌وساز در حریم رودخانه‌ها می‌تواند خسارت سیل را افزایش دهد."],
+  ["p4","منابع آب","آب برای حیات انسان، آبادانی و شکل‌گیری تمدن‌ها ضروری است. حفاظت و استفاده اصولی از آب وظیفه‌ای فردی و اجتماعی است. به دلیل محدودیت بارش، بخشی از آب آشامیدنی بعضی شهرها از حوضه‌های خارج استان، مانند زرینه‌رود، تأمین می‌شود."]
+ ],
+ questions:[
+  ["p0","تشریحی","هدف اصلی کتاب استان‌شناسی چیست؟","آشنا کردن دانش‌آموزان با ویژگی‌های جغرافیایی، تاریخی، اجتماعی، اقتصادی و فرهنگی استان و پرورش شهروندی آگاه و مسئول."],
+  ["p0","جای خالی","شناخت استان باعث آگاهی از .......... و .......... آن می‌شود.","فرصت‌ها و تهدیدها."],
+  ["p0","صحیح و غلط","شناخت محیط زندگی می‌تواند به یافتن راه‌حل برای مشکلات استان کمک کند.","صحیح."],
+  ["p1","تشریحی","استان آذربایجان شرقی در کدام قسمت ایران قرار دارد؟","در شمال غربی ایران."],
+  ["p1","تشریحی","چرا استان از نظر ارتباطی اهمیت دارد؟","زیرا از گذشته پل ارتباطی ایران با کشورهای منطقه قفقاز و اروپا بوده است."],
+  ["p1","جای خالی","استان حدود .......... درصد از مساحت کشور را تشکیل می‌دهد.","۲٫۷ درصد."],
+  ["p1","چهارگزینه‌ای","استان از نظر وسعت چه رتبه‌ای در کشور دارد؟",["پنجم","هشتم","یازدهم","پانزدهم"],2],
+  ["p1","تشریحی","مرز شمالی استان به وسیله کدام رود مشخص می‌شود؟","رود ارس."],
+  ["p1","جای خالی","استان با جمهوری آذربایجان و .......... مرز مشترک دارد.","ارمنستان."],
+  ["p1","چهارگزینه‌ای","طول مرز استان با جمهوری آذربایجان چقدر است؟",["۴۵ کیلومتر","۲۰۲٫۲ کیلومتر","۱۰۰ کیلومتر","۲۴۷٫۲ کیلومتر"],1],
+  ["p2","تشریحی","چه عواملی در شکل‌گیری ناهمواری‌های استان نقش داشته‌اند؟","حرکات کوه‌زایی، فعالیت آتشفشانی، چین‌خوردگی، فرسایش و رسوب‌گذاری."],
+  ["p2","جای خالی","مهم‌ترین و فعال‌ترین گسل استان، گسل .......... است.","تبریز."],
+  ["p2","چهارگزینه‌ای","چه درصدی از استان کوهستانی است؟",["۲۸٫۲","۳۱٫۸","۴۰","۵۰"],2],
+  ["p2","تشریحی","بلندترین نقطه استان کدام کوه است و چه ارتفاعی دارد؟","کوه سهند با ارتفاع ۳۷۰۷ متر."],
+  ["p2","جای خالی","کوه سهند در حدود .......... کیلومتری جنوب تبریز قرار دارد.","۴۰ کیلومتری."],
+  ["p2","تشریحی","دو رود سرچشمه‌گرفته از دامنه سهند را نام ببرید.","برای نمونه صوفی‌چای و قرانقوچای."],
+  ["p2","چهارگزینه‌ای","بلندترین قله قره‌داغ کدام است؟",["علی علمدار","کیامکی","سلطان ساوالان","قبله‌داغ"],1],
+  ["p2","تشریحی","دشت‌ها چگونه تشکیل می‌شوند؟","از تجمع رسوبات حاصل از فرسایش کوه‌ها در مناطق میان‌کوهی."],
+  ["p2","صحیح و غلط","وجود گسل‌های متعدد می‌تواند خطر زمین‌لرزه را افزایش دهد.","صحیح."],
+  ["p2","تشریحی","دو راهکار کاهش خسارات زلزله را بنویسید.","پهنه‌بندی خطر زلزله و نظارت بر ساخت‌وسازها."],
+  ["p3","تشریحی","آب‌وهوای غالب استان چگونه است؟","نیمه‌خشک سرد."],
+  ["p3","تشریحی","سه عامل مؤثر بر آب‌وهوای استان را نام ببرید.","ارتفاع، جهت ناهمواری‌ها، توده‌های هوا، منابع رطوبتی و پوشش گیاهی؛ سه مورد کافی است."],
+  ["p3","جای خالی","رژیم بارندگی استان از نوع .......... است.","مدیترانه‌ای."],
+  ["p3","چهارگزینه‌ای","پرباران‌ترین فصل استان کدام است؟",["تابستان","پاییز","زمستان","بهار"],3],
+  ["p3","جای خالی","میانگین بارندگی سالانه استان حدود .......... میلی‌متر است.","۳۲۵."],
+  ["p3","صحیح و غلط","مرداد سردترین ماه سال در استان است.","غلط؛ مرداد گرم‌ترین و بهمن سردترین ماه سال است."],
+  ["p3","تشریحی","مهم‌ترین مخاطرات جوی استان را نام ببرید.","خشکسالی، سرمای دیررس یا زودرس، تگرگ و سیل."],
+  ["p3","تشریحی","چرا بعضی مناطق استان در معرض سیل هستند؟","به دلیل رگبارهای شدید، شرایط کوهستانی و طغیان رودخانه‌ها."],
+  ["p4","تشریحی","چرا آب در شکل‌گیری تمدن‌ها اهمیت داشته است؟","زیرا آب برای زندگی، کشاورزی و آبادانی ضروری است و تمدن‌های نخستین در کنار منابع آب شکل گرفتند."],
+  ["p4","صحیح و غلط","حفاظت از آب فقط وظیفه دولت است.","غلط؛ وظیفه‌ای فردی و اجتماعی است."],
+  ["p4","جای خالی","یکی از منابع تأمین آب بعضی شهرهای استان، انتقال آب .......... است.","زرینه‌رود."]
+ ]
 },
 
-/* درس دوم */
-
-{
-lesson:"lesson2",type:"تشریحی",important:true,
-q:"فلات آذربایجان در کدام قسمت فلات ایران قرار گرفته است؟",
-a:"در شمال غربی فلات ایران."
-},
-{
-lesson:"lesson2",type:"تشریحی",
-q:"چه عواملی در شکل‌گیری ناهمواری‌های استان نقش داشته‌اند؟",
-a:"حرکات کوه‌زایی، فعالیت‌های آتشفشانی، چین‌خوردگی لایه‌های رسوبی، فرسایش و رسوب‌گذاری."
-},
-{
-lesson:"lesson2",type:"جای خالی",
-q:"مهم‌ترین و فعال‌ترین گسل استان، گسل .......... است.",
-a:"تبریز."
-},
-{
-lesson:"lesson2",type:"چهارگزینه‌ای",
-q:"چه درصدی از سطح استان را مناطق کوهستانی تشکیل می‌دهند؟",
-options:["۲۸٫۲ درصد","۳۱٫۸ درصد","۴۰ درصد","۵۰ درصد"],
-correct:2,
-a:"گزینه ۳؛ ۴۰ درصد."
-},
-{
-lesson:"lesson2",type:"تشریحی",important:true,
-q:"بلندترین نقطه استان آذربایجان شرقی کدام کوه است و چه ارتفاعی دارد؟",
-a:"کوه سهند با ارتفاع ۳۷۰۷ متر."
-},
-{
-lesson:"lesson2",type:"جای خالی",
-q:"کوه سهند در حدود .......... کیلومتری جنوب شهر تبریز قرار دارد.",
-a:"۴۰ کیلومتری."
-},
-{
-lesson:"lesson2",type:"تشریحی",
-q:"چند رود مهم که از دامنه‌های سهند سرچشمه می‌گیرند نام ببرید.",
-a:"صوفی‌چای، قرانقوچای، قلعه‌چای و اوجان."
-},
-{
-lesson:"lesson2",type:"چهارگزینه‌ای",
-q:"بلندترین قله قره‌داغ کدام است؟",
-options:["علی علمدار","کیامکی","سلطان ساوالان","قبله‌داغ"],
-correct:1,
-a:"گزینه ۲؛ کیامکی با ارتفاع ۳۴۱۴ متر."
-},
-{
-lesson:"lesson2",type:"تشریحی",
-q:"بلندترین قله رشته‌کوه میشو داغ چه نام دارد؟",
-a:"قله علی علمدار با ارتفاع ۳۱۵۵ متر."
-},
-{
-lesson:"lesson2",type:"جای خالی",
-q:"بلندترین نقطه رشته‌کوه بزقوش .......... متر ارتفاع دارد.",
-a:"۳۳۰۲ متر."
-},
-{
-lesson:"lesson2",type:"تشریحی",
-q:"دشت‌ها چگونه تشکیل می‌شوند؟",
-a:"دشت‌ها در میان کوهستان‌ها و بر اثر تجمع رسوبات ناشی از فرسایش کوه‌ها شکل می‌گیرند."
-},
-{
-lesson:"lesson2",type:"تشریحی",
-q:"چرا بیشتر سکونتگاه‌ها در دشت‌ها شکل گرفته‌اند؟",
-a:"زیرا دشت‌ها معمولاً زمین‌های هموارتر و خاک حاصلخیزتری دارند."
-},
-{
-lesson:"lesson2",type:"چهارگزینه‌ای",
-q:"جلگه‌های ساحلی دریاچه ارومیه بیشتر از چه چیزی تشکیل شده‌اند؟",
-options:["مواد آتشفشانی","آبرفت رودها","سنگ‌های آذرین","یخچال‌ها"],
-correct:1,
-a:"گزینه ۲؛ آبرفت رودها."
-},
-{
-lesson:"lesson2",type:"صحیح و غلط",
-q:"با حرکت از پای کوه به سوی دریاچه ارومیه، خاک جلگه‌ها شورتر می‌شود.",
-a:"صحیح."
-},
-{
-lesson:"lesson2",type:"تشریحی",important:true,
-q:"دو مورد از مخاطرات طبیعی مرتبط با ناهمواری‌های استان را نام ببرید.",
-a:"حرکات توده‌ای مانند لغزش و ریزش، و زمین‌لرزه ناشی از فعالیت گسل‌ها."
-},
-{
-lesson:"lesson2",type:"تشریحی",
-q:"چرا استان آذربایجان شرقی منطقه‌ای زلزله‌خیز محسوب می‌شود؟",
-a:"به دلیل وجود گسل‌های متعدد و فعالیت زمین‌ساختی در منطقه."
-},
-{
-lesson:"lesson2",type:"جای خالی",
-q:"زلزله ۲۱ مرداد ۱۳۹۱ در شهرستان‌های .......... و .......... رخ داد.",
-a:"اهر و ورزقان."
-},
-{
-lesson:"lesson2",type:"چهارگزینه‌ای",
-q:"کدام اقدام برای کاهش خسارات زلزله مناسب است؟",
-options:["ساخت‌وساز در مناطق پرخطر","بی‌توجهی به گسل‌ها","نظارت بر ساخت‌وسازها و پهنه‌بندی خطر","افزایش ساخت‌وساز در حریم گسل"],
-correct:2,
-a:"گزینه ۳؛ نظارت بر ساخت‌وسازها و پهنه‌بندی خطر."
-},
-
-/* درس سوم */
-
-{
-lesson:"lesson3",type:"تشریحی",important:true,
-q:"آب‌وهوای غالب استان آذربایجان شرقی چگونه است؟",
-a:"به دلیل کوهستانی بودن و قرار گرفتن در عرض‌های جغرافیایی متوسط، آب‌وهوای غالب استان نیمه‌خشک سرد است."
-},
-{
-lesson:"lesson3",type:"تشریحی",
-q:"چرا استان آذربایجان شرقی تنوع آب‌وهوایی دارد؟",
-a:"به علت تفاوت ارتفاع، جهت‌گیری کوه‌ها، ورود توده‌های هوا و نزدیکی یا دوری از منابع رطوبتی."
-},
-{
-lesson:"lesson3",type:"جای خالی",
-q:"یکی از توده‌های هوایی مؤثر بر آب‌وهوای استان، توده هوای .......... است.",
-a:"سیبری یا شمالی."
-},
-{
-lesson:"lesson3",type:"تشریحی",
-q:"سه مورد از عوامل محلی مؤثر بر آب‌وهوای استان را نام ببرید.",
-a:"ارتفاع از سطح دریا، ناهمواری‌ها و جهت‌گیری کوه‌ها، منابع رطوبتی، عرض جغرافیایی و پوشش گیاهی."
-},
-{
-lesson:"lesson3",type:"چهارگزینه‌ای",
-q:"ارتفاع گرما‌دوز در متن کتاب حدود چند متر ذکر شده است؟",
-options:["۱۶۰ متر","۳۷۰۷ متر","۳۱۵۵ متر","۴۸۱۱ متر"],
-correct:0,
-a:"گزینه ۱؛ حدود ۱۶۰ متر."
-},
-{
-lesson:"lesson3",type:"تشریحی",
-q:"عناصر اقلیمی را نام ببرید.",
-a:"بارش، دما، رطوبت، تعداد روزهای یخبندان، ساعات آفتابی، پوشش ابر، تبخیر و تعرق و وزش باد."
-},
-{
-lesson:"lesson3",type:"جای خالی",
-q:"رژیم بارندگی استان آذربایجان شرقی از نوع .......... است.",
-a:"مدیترانه‌ای."
-},
-{
-lesson:"lesson3",type:"چهارگزینه‌ای",
-q:"پرباران‌ترین فصل استان کدام است؟",
-options:["تابستان","پاییز","زمستان","بهار"],
-correct:3,
-a:"گزینه ۴؛ بهار."
-},
-{
-lesson:"lesson3",type:"تشریحی",important:true,
-q:"میانگین بارندگی سالانه استان حدود چند میلی‌متر است؟",
-a:"حدود ۳۲۵ میلی‌متر."
-},
-{
-lesson:"lesson3",type:"تشریحی",
-q:"بارش در کدام مناطق استان بیشتر است؟",
-a:"در ارتفاعات سهند، سبلان، بزقوش و تخت سلیمان."
-},
-{
-lesson:"lesson3",type:"جای خالی",
-q:"گرم‌ترین ماه سال در استان .......... و سردترین ماه سال .......... است.",
-a:"مرداد؛ بهمن."
-},
-{
-lesson:"lesson3",type:"صحیح و غلط",
-q:"بهمن گرم‌ترین ماه سال در استان آذربایجان شرقی است.",
-a:"غلط؛ مرداد گرم‌ترین و بهمن سردترین ماه سال است."
-},
-{
-lesson:"lesson3",type:"تشریحی",
-q:"مهم‌ترین مخاطرات جوی استان را نام ببرید.",
-a:"خشکسالی، هجوم توده‌های هوای سرد، تگرگ و سیل."
-},
-{
-lesson:"lesson3",type:"تشریحی",important:true,
-q:"چرا در برخی مناطق استان احتمال وقوع سیل وجود دارد؟",
-a:"به علت رگبارهای شدید، شرایط کوهستانی و طغیان رودخانه‌ها."
-},
-{
-lesson:"lesson3",type:"چهارگزینه‌ای",
-q:"کدام عامل می‌تواند خسارات ناشی از سیل را افزایش دهد؟",
-options:["حفظ پوشش گیاهی","ساخت‌وساز در حریم رودخانه‌ها","رعایت حریم رودخانه","مدیریت صحیح آب"],
-correct:1,
-a:"گزینه ۲؛ ساخت‌وساز در حریم رودخانه‌ها."
-},
-{
-lesson:"lesson3",type:"تشریحی",
-q:"توده هوای سرد در اوایل بهار چه خساراتی به همراه دارد؟",
-a:"می‌تواند به باغ‌ها و مزارع کشاورزی آسیب وارد کند."
-},
-{
-lesson:"lesson3",type:"صحیح و غلط",
-q:"تگرگ در ماه‌های گرم سال می‌تواند محصولات کشاورزی را تهدید کند.",
-a:"صحیح."
-},
-
-/* درس چهارم */
-
-{
-lesson:"lesson4",type:"تشریحی",important:true,
-q:"آب چه نقشی در زندگی انسان و شکل‌گیری تمدن‌ها دارد؟",
-a:"آب برای ادامه حیات انسان، آبادانی سرزمین‌ها و شکل‌گیری تمدن‌ها ضروری است. بسیاری از تمدن‌های نخستین در کنار منابع آب به وجود آمده‌اند."
-},
-{
-lesson:"lesson4",type:"صحیح و غلط",
-q:"حفاظت و استفاده اصولی از منابع آب فقط وظیفه دولت است.",
-a:"غلط؛ حفاظت و استفاده اصولی از آب وظیفه‌ای فردی و اجتماعی است."
-},
-{
-lesson:"lesson4",type:"تشریحی",
-q:"چرا برای تأمین آب آشامیدنی بعضی شهرهای استان از منابع خارج از استان استفاده می‌شود؟",
-a:"به دلیل محدودیت بارش و کمبود منابع آب در برخی مناطق استان."
-},
-{
-lesson:"lesson4",type:"جای خالی",
-q:"یکی از منابع تأمین آب بعضی شهرهای استان، انتقال آب .......... در آذربایجان غربی است.",
-a:"زرینه‌رود."
-},
-{
-lesson:"lesson4",type:"چهارگزینه‌ای",
-q:"آیه «وَجَعَلْنا مِنَ الْماءِ کُلَّ شَیْءٍ حَیّ» به چه موضوعی اشاره دارد؟",
-options:["اهمیت کوه‌ها","آفرینش موجودات زنده از آب","اهمیت جنگل‌ها","چرخه سنگ‌ها"],
-correct:1,
-a:"گزینه ۲؛ اهمیت آب در آفرینش و حیات موجودات زنده."
+persian:{
+ title:"فارسی دهم",
+ subtitle:"زیبایی زبان، اندیشه و ادبیات فارسی",
+ theme:"persian-theme",
+ accent:"#895b3c",
+ tagbg:"#f2e5d8",
+ answerbg:"#f8eee5",
+ lessons:[
+  {id:"f0",name:"ستایش: به نام کردگار",desc:"خداشناسی و آرایه‌های ادبی"},
+  {id:"f1",name:"درس یکم: چشمه",desc:"معنی، مفهوم و آرایه‌های شعر"},
+  {id:"f2",name:"درس دوم: از آموختن ننگ مدار",desc:"ارزش دانش و یادگیری"},
+  {id:"f3",name:"درس سوم: پاسداری از حقیقت",desc:"مفاهیم و نکات متن"},
+  {id:"f4",name:"درس پنجم: بیداد ظالمان",desc:"مفهوم عدالت و ستم"},
+  {id:"f5",name:"درس ششم: مهر و وفا",desc:"ادبیات غنایی و عاطفی"},
+  {id:"f6",name:"درس هفتم: جمال و کمال",desc:"زیبایی و کمال انسانی"},
+  {id:"f7",name:"درس هشتم: سفر به بصره",desc:"سفرنامه و نثر ناصرخسرو"},
+  {id:"f8",name:"درس نهم: کلاس نقاشی",desc:"نثر داستانی و آرایه‌ها"},
+  {id:"f9",name:"درس دهم: دریادلان صف‌شکن",desc:"مفاهیم ایثار و پایداری"},
+  {id:"f10",name:"درس یازدهم: خاک آزادگان",desc:"وطن‌دوستی و ادبیات حماسی"},
+  {id:"f11",name:"درس دوازدهم: رستم و اشکبوس",desc:"حماسه و شاهنامه"},
+  {id:"f12",name:"درس سیزدهم: گردآفرید",desc:"شخصیت حماسی و شجاعت"},
+  {id:"f13",name:"درس چهاردهم: طوطی و بقّال",desc:"داستان و نکته‌های ادبی"},
+  {id:"f14",name:"درس شانزدهم: خسرو",desc:"مطالعه متن و قلمروها"},
+  {id:"f15",name:"درس هفدهم: سپیده‌دم",desc:"مفهوم و نکات ادبی"},
+  {id:"f16",name:"درس هجدهم: عظمت نگاه",desc:"نگاه عمیق به جهان"}
+ ],
+ notes:[
+  ["f0","ستایش؛ به نام کردگار","در این ستایش، شاعر خداوند را آفریننده جهان و انسان، روزی‌دهنده همه موجودات و سرچشمه زیبایی‌های طبیعت معرفی می‌کند. پیام کلی: ستایش قدرت و عظمت خداوند."],
+  ["f1","درس چشمه","در این درس، چشمه با حرکت و جنب‌وجوش از سنگ جدا می‌شود. در توصیف چشمه از جان‌بخشی و تشبیه استفاده شده است. برای پاسخ به پرسش‌های دقیق‌تر، متن کامل شعر و کارگاه متن‌پژوهی باید بررسی شود."],
+  ["f2","از آموختن ننگ مدار","محور اصلی درس، ارزش آموختن و دانش‌اندوزی است. یادگیری عیب نیست؛ انسان با دانش، تجربه و تلاش می‌تواند توانایی خود را افزایش دهد."],
+  ["f3","پاسداری از حقیقت","موضوع محوری درس، اهمیت حقیقت‌جویی و دفاع از راستی است. در بررسی درس باید به پیام متن، واژگان و شیوه بیان نویسنده توجه کرد."],
+  ["f4","بیداد ظالمان","این درس به ستم و پیامدهای آن می‌پردازد. در تحلیل متن، مفهوم عدالت، ظلم و واکنش انسان در برابر ستم اهمیت دارد."],
+  ["f5","مهر و وفا","این شعر در حوزه ادبیات غنایی قرار می‌گیرد؛ زیرا احساسات و عواطف عاشقانه در آن برجسته است. در درسنامه، برای آن ردیف و ویژگی‌های غزل نیز بررسی شده است."],
+  ["f6","جمال و کمال","در این درس، زیبایی و کمال از جنبه‌های معنایی و ادبی بررسی می‌شوند. هنگام مطالعه، مفهوم واژه‌ها و ارتباط اجزای متن را در نظر بگیر."],
+  ["f7","سفر به بصره","این درس بخشی از سفرنامه ناصرخسرو است. نثر او ساده و توصیف‌هایش دقیق است. واژه‌هایی مانند «فضل» در متن می‌توانند به معنی دانش یا بخشش باشند. «دست‌تنگ» کنایه از فقیر بودن است. تشبیه «به دیوانگان ماننده بودیم» نیز در درسنامه بررسی شده است."],
+  ["f8","کلاس نقاشی","این درس درباره خاطره کلاس نقاشی و مهارت معلم است. «خشکی نداشت» کنایه از شاداب و صمیمی بودن است؛ «صورتک به رو نداشت» به صداقت و دوری از ریا اشاره می‌کند. «چشم به راه بودن» کنایه از منتظر بودن است."],
+  ["f9","دریادلان صف‌شکن","درسنامه بر مفاهیمی مانند فداکاری، پایداری و ایثار تمرکز دارد. در تحلیل ادبی متن باید به کنایه‌ها، تشبیه‌ها و مفهوم عبارت‌ها توجه کرد."],
+  ["f10","خاک آزادگان","مفهوم اصلی شعر، عشق به وطن و ایستادگی در برابر دشمن است. «خاک» می‌تواند مفهوم وطن و «شعله» مفهوم عشق را برساند. شعر در کنار مضمون عاطفی، شور اجتماعی و حماسی نیز دارد."],
+  ["f11","رستم و اشکبوس","این درس از داستان‌های حماسی شاهنامه است. در بررسی آن باید به ویژگی‌های حماسه، واژگان کهن، کنایه‌ها و آرایه‌هایی مانند جناس توجه کرد. «چو» در متن با توجه به جایگاه می‌تواند معنی «وقتی که» یا «مانند» بدهد."],
+  ["f12","گردآفرید","این درس جلوه‌ای از شجاعت و توانمندی زنان در ادبیات حماسی را نشان می‌دهد. برای تحلیل آن، شخصیت‌پردازی و ویژگی‌های حماسی اهمیت دارد."],
+  ["f13","طوطی و بقّال","این حکایت با استفاده از روایت و تمثیل، نکته‌ای اخلاقی را منتقل می‌کند. در تحلیل حکایت باید رابطه داستان با پیام نهایی آن را پیدا کرد."],
+  ["f14","خسرو","برای این بخش، متن کامل درس و کارگاه لازم است تا خلاصه و پرسش‌های دقیق و قابل استناد نوشته شوند."],
+  ["f15","سپیده‌دم","در مطالعه این درس به مفهوم کلی، واژگان، ساختار جمله و آرایه‌های ادبی توجه کن. برای تکمیل خلاصه به متن کامل نیاز است."],
+  ["f16","عظمت نگاه","این درس بر شیوه نگاه و دریافت انسان از جهان تمرکز دارد. برای طرح پرسش‌های دقیق‌تر، متن کامل درس و کارگاه باید در دسترس باشد."]
+ ],
+ questions:[
+  ["f0","تشریحی","مفهوم کلی ستایش «به نام کردگار» چیست؟","ستایش خداوند به‌عنوان آفریننده جهان، روزی‌دهنده موجودات و سرچشمه زیبایی‌ها."],
+  ["f0","جای خالی","واژه «رزّاق» به معنی .......... است.","روزی‌دهنده."],
+  ["f0","تشریحی","در عبارت «تویی رزّاق هر پیدا و پنهان»، چه مفهومی بیان شده است؟","خداوند روزی‌دهنده همه موجودات آشکار و پنهان است."],
+  ["f0","چهارگزینه‌ای","«کار» و «یار» در بیت ستایش چه آرایه‌ای دارند؟",["تضاد","جناس","سجع","اغراق"],1],
+  ["f1","تشریحی","در درس چشمه، برای جان‌بخشی به چشمه از چه آرایه‌ای استفاده شده است؟","تشخیص یا جان‌بخشی؛ ویژگی‌های انسانی و حرکتی به چشمه نسبت داده شده‌اند."],
+  ["f2","تشریحی","پیام اصلی درس «از آموختن ننگ مدار» چیست؟","ارزشمند بودن دانش‌اندوزی و ضرورت یادگیری؛ آموختن مایه رشد انسان است."],
+  ["f3","تشریحی","موضوع محوری درس پاسداری از حقیقت چیست؟","اهمیت حقیقت‌جویی و دفاع از راستی."],
+  ["f5","چهارگزینه‌ای","شعر «مهر و وفا» در کدام گونه ادبی قرار می‌گیرد؟",["حماسی","غنایی","تعلیمی","نمایشی"],1],
+  ["f5","تشریحی","چرا مهر و وفا در ادبیات غنایی قرار می‌گیرد؟","زیرا سرشار از احساسات و عواطف عاشقانه است."],
+  ["f7","تشریحی","دو ویژگی نثر ناصرخسرو را بنویسید.","سادگی عبارت‌ها و توصیف‌های دقیق؛ کوتاهی جمله‌ها نیز از ویژگی‌های آن است."],
+  ["f7","جای خالی","«دست‌تنگ» کنایه از .......... است.","فقیر بودن."],
+  ["f7","تشریحی","واژه «فضل» در درس سفر به بصره چه دو معنایی دارد؟","دانش و بخشش."],
+  ["f7","چهارگزینه‌ای","در عبارت «از برهنگی و عاجزی به دیوانگان ماننده بودیم» چه آرایه‌ای دیده می‌شود؟",["تشبیه","تضاد","جناس","اغراق"],0],
+  ["f7","تشریحی","در تشبیه «به دیوانگان ماننده بودیم»، مشبّه و مشبّه‌به کدام‌اند؟","مشبّه: ما؛ مشبّه‌به: دیوانگان."],
+  ["f7","صحیح و غلط","«شوخ» در متن سفر به بصره به معنی چرک و آلودگی است.","صحیح."],
+  ["f8","تشریحی","عبارت «خشکی نداشت» در درس کلاس نقاشی چه مفهومی دارد؟","یعنی شاداب، بانشاط و صمیمی بود."],
+  ["f8","تشریحی","«صورتک به رو نداشت» چه مفهومی دارد؟","یعنی ظاهرسازی و دورویی نمی‌کرد و صادق بود."],
+  ["f8","جای خالی","«چشم به راه بودن» کنایه از .......... است.","منتظر بودن."],
+  ["f8","چهارگزینه‌ای","عبارت «اتاق از جا کنده شد» چه آرایه‌ای دارد؟",["تشبیه","اغراق","تضاد","جناس"],1],
+  ["f10","تشریحی","مفهوم اصلی شعر خاک آزادگان چیست؟","عشق به وطن و ایستادگی در برابر دشمن."],
+  ["f10","تشریحی","واژه «خاک» در شعر خاک آزادگان در چه مفهوم مجازی به کار رفته است؟","وطن."],
+  ["f10","تشریحی","واژه «شعله» در شعر خاک آزادگان به چه مفهومی اشاره دارد؟","عشق."],
+  ["f10","چهارگزینه‌ای","شعر خاک آزادگان علاوه بر مضمون عاطفی، چه حال‌وهوایی دارد؟",["طنز","حماسی و اجتماعی","صرفاً توصیفی","تعلیمی"],1],
+  ["f11","تشریحی","«چو» در زبان فارسی چه کاربردهایی می‌تواند داشته باشد؟","با توجه به بافت جمله می‌تواند به معنی «وقتی که» یا «مانند» باشد."],
+  ["f11","جای خالی","در عبارت «زنی بود بر سان گرد سوار»، واژه «بر سان» به معنی .......... است.","مانند."],
+  ["f11","تشریحی","دو نمونه از کنایه‌های درس رستم و اشکبوس را توضیح دهید.","«عنان اژدها را سپرد» یعنی سهراب افسار اسب را رها کرد؛ «رخ نامور سوی توران کنی» یعنی بهتر است به سوی سرزمین توران بروی."],
+  ["f11","صحیح و غلط","داستان رستم و اشکبوس از آثار حماسی شاهنامه است.","صحیح."],
+  ["f12","تشریحی","گردآفرید در ادبیات حماسی نماد چه ویژگی‌هایی است؟","شجاعت، دلاوری و توانمندی."],
+  ["f13","تشریحی","تمثیل در یک حکایت چه کاربردی دارد؟","با استفاده از یک داستان یا نمونه ملموس، پیام اخلاقی یا فکری را روشن‌تر می‌کند."]
+ ]
 }
 
-];
-
-const lessonNames={
- intro:"مقدمه و اهداف استان‌شناسی",
- lesson1:"درس اول: موقعیت جغرافیایی",
- lesson2:"درس دوم: ناهمواری‌های استان",
- lesson3:"درس سوم: آب‌وهوای استان",
- lesson4:"درس چهارم: منابع طبیعی استان"
 };
 
+
+/* ===========================
+   مدیریت نمایش
+=========================== */
+
+let currentBook=null;
 let currentLesson="all";
+let activeQuiz=[];
 
-document.getElementById("totalQuestions").textContent=questions.length;
+function openBook(name){
+ currentBook=name;
+ currentLesson="all";
+ document.getElementById("home").classList.add("hidden");
+ document.getElementById("bookApp").classList.remove("hidden");
 
-function filterLesson(lesson,element){
- currentLesson=lesson;
- document.querySelectorAll(".subject-card").forEach(c=>c.classList.remove("active"));
- if(element) element.classList.add("active");
- document.getElementById("questionHeading").textContent=
- lesson==="all"?"📝 همه سؤالات":"📝 "+lessonNames[lesson];
+ const b=books[name];
+ const theme=document.getElementById("appTheme");
+ theme.className=b.theme;
+ theme.style.setProperty("--accent",b.accent);
+ theme.style.setProperty("--tagbg",b.tagbg);
+ theme.style.setProperty("--answerbg",b.answerbg);
+
+ document.getElementById("bookTitle").textContent=b.title;
+ document.getElementById("bookSubtitle").textContent=b.subtitle;
+ document.getElementById("lessonCount").textContent=b.lessons.length;
+ document.getElementById("questionCount").textContent=b.questions.length;
+
+ document.getElementById("search").value="";
+ document.getElementById("typeFilter").value="all";
+ document.getElementById("quizBox").classList.add("hidden");
+
+ renderLessons();
+ renderNotes();
+ renderQuestions();
+
+ window.scrollTo(0,0);
+}
+
+function goHome(){
+ document.getElementById("bookApp").classList.add("hidden");
+ document.getElementById("home").classList.remove("hidden");
+ currentBook=null;
+ window.scrollTo(0,0);
+}
+
+function renderLessons(){
+ const b=books[currentBook];
+ const box=document.getElementById("lessonList");
+
+ box.innerHTML=`
+ <div class="lesson-card ${currentLesson==="all"?"active":""}"
+ onclick="selectLesson('all')">
+ <h3>📚 همه درس‌ها</h3>
+ <p>نمایش تمام مطالب و پرسش‌ها</p>
+ </div>
+ `+b.lessons.map(l=>`
+ <div class="lesson-card ${currentLesson===l.id?"active":""}"
+ onclick="selectLesson('${l.id}')">
+ <h3>${l.name}</h3>
+ <p>${l.desc}</p>
+ </div>
+ `).join("");
+}
+
+function selectLesson(id){
+ currentLesson=id;
+ renderLessons();
+ renderNotes();
  renderQuestions();
 }
 
+function renderNotes(){
+ const b=books[currentBook];
+ const box=document.getElementById("notes");
+ const list=b.notes.filter(n=>currentLesson==="all"||n[0]===currentLesson);
+
+ if(!list.length){
+  box.innerHTML='<div class="empty">مطلبی برای این بخش ثبت نشده است.</div>';
+  return;
+ }
+
+ box.innerHTML=list.map(n=>`
+ <div class="note-card">
+  <span class="tag">خلاصه و نکته آموزشی</span>
+  <h3>${n[1]}</h3>
+  <p>${n[2]}</p>
+ </div>
+ `).join("");
+}
+
 function renderQuestions(){
+ const b=books[currentBook];
+ const box=document.getElementById("questions");
  const search=document.getElementById("search").value.trim().toLowerCase();
  const type=document.getElementById("typeFilter").value;
- const box=document.getElementById("questions");
 
- const filtered=questions.filter(q=>{
-  const lessonMatch=currentLesson==="all"||q.lesson===currentLesson;
-  const typeMatch=type==="all"||q.type===type;
-  const searchMatch=(q.q+" "+q.a).toLowerCase().includes(search);
-  return lessonMatch&&typeMatch&&searchMatch;
+ const list=b.questions.filter(q=>{
+  const lessonOK=currentLesson==="all"||q[0]===currentLesson;
+  const typeOK=type==="all"||q[1]===type;
+  const searchOK=(q[2]+" "+q[3]).toLowerCase().includes(search);
+  return lessonOK&&typeOK&&searchOK;
  });
 
- if(filtered.length===0){
+ if(!list.length){
   box.innerHTML='<div class="empty">سؤالی با این مشخصات پیدا نشد.</div>';
   return;
  }
 
- box.innerHTML=filtered.map((q,i)=>{
+ box.innerHTML=list.map((q,i)=>{
   let options="";
-  if(q.options){
-   options='<div class="options">'+q.options.map((op,j)=>
-    '<div class="option">'+(j+1)+') '+op+'</div>'
+  if(q[4] instanceof Array){
+   options='<div class="options">'+q[4].map((o,j)=>
+    `<div class="option">${j+1}) ${o}</div>`
    ).join("")+'</div>';
   }
 
+  let answer=q[4] instanceof Array
+   ?q[3]+" پاسخ صحیح: "+q[4][q[5]+0]+"."
+   :q[3];
+
   return `
-  <div class="question">
-   <div class="question-top">
-    <span class="question-type">${q.type} ${q.important?"⭐ مهم":""}</span>
-    <span class="question-number">سؤال ${i+1}</span>
+  <div class="question-card">
+   <div class="question-meta">
+    <span>${q[1]}</span>
+    <span>سؤال ${i+1}</span>
    </div>
-   <div class="lesson-tag">${lessonNames[q.lesson]}</div>
-   <h3>${q.q}</h3>
+   <h3>${q[2]}</h3>
    ${options}
    <button class="answer-btn" onclick="toggleAnswer(this)">مشاهده پاسخ</button>
-   <div class="answer">${q.a}</div>
-  </div>`;
+   <div class="answer">${answer}</div>
+  </div>
+  `;
  }).join("");
 }
 
 function toggleAnswer(btn){
- const answer=btn.nextElementSibling;
- answer.classList.toggle("show");
- btn.textContent=answer.classList.contains("show")?"بستن پاسخ":"مشاهده پاسخ";
+ const box=btn.nextElementSibling;
+ box.classList.toggle("show");
+ btn.textContent=box.classList.contains("show")?"بستن پاسخ":"مشاهده پاسخ";
 }
 
-function toggleDark(){
- document.body.classList.toggle("dark");
- localStorage.setItem("darkMode",document.body.classList.contains("dark"));
-}
-if(localStorage.getItem("darkMode")==="true"){
- document.body.classList.add("dark");
-}
+
+/* ===========================
+   آزمون آنلاین
+=========================== */
 
 function startQuiz(){
- const quizQuestions=questions.filter(q=>q.type==="چهارگزینه‌ای");
- const selected=quizQuestions.sort(()=>Math.random()-.5).slice(0,10);
- window.activeQuiz=selected;
+ const b=books[currentBook];
+ let pool=b.questions.filter(q=>q[1]==="چهارگزینه‌ای");
 
- document.getElementById("quizBox").style.display="block";
+ if(pool.length===0){
+  alert("هنوز سؤال چهارگزینه‌ای برای این بخش وجود ندارد.");
+  return;
+ }
+
+ pool=pool.filter(q=>currentLesson==="all"||q[0]===currentLesson);
+
+ if(pool.length===0){
+  alert("برای این درس سؤال چهارگزینه‌ای ثبت نشده است.");
+  return;
+ }
+
+ activeQuiz=pool.sort(()=>Math.random()-.5).slice(0,Math.min(10,pool.length));
+
+ document.getElementById("quizBox").classList.remove("hidden");
  document.getElementById("result").style.display="none";
 
- document.getElementById("quizQuestions").innerHTML=selected.map((q,i)=>`
- <div class="quiz-question">
-  <p>${i+1}. ${q.q}</p>
-  ${q.options.map((op,j)=>`
+ document.getElementById("quizQuestions").innerHTML=activeQuiz.map((q,i)=>`
+ <div class="quiz-card">
+  <p>${i+1}. ${q[2]}</p>
+  ${q[4].map((op,j)=>`
    <label>
-    <input type="radio" name="q${i}" value="${j}">
+    <input type="radio" name="quiz${i}" value="${j}">
     ${op}
    </label>
   `).join("")}
@@ -747,36 +840,33 @@ function startQuiz(){
 }
 
 function checkQuiz(){
- const quiz=window.activeQuiz;
- if(!quiz||quiz.length===0)return;
-
  let score=0;
  let unanswered=0;
 
- quiz.forEach((q,i)=>{
-  const answer=document.querySelector(`input[name="q${i}"]:checked`);
-  if(!answer)unanswered++;
-  else if(Number(answer.value)===q.correct)score++;
+ activeQuiz.forEach((q,i)=>{
+  const selected=document.querySelector(`input[name="quiz${i}"]:checked`);
+  if(!selected)unanswered++;
+  else if(Number(selected.value)===q[5])score++;
  });
 
- if(unanswered>0){
-  alert("لطفاً به تمام سؤالات پاسخ بده.");
+ if(unanswered){
+  alert("لطفاً به همه سؤال‌ها پاسخ بده.");
   return;
  }
 
+ const grade=Math.round(score/activeQuiz.length*20*10)/10;
  const result=document.getElementById("result");
+
  result.style.display="block";
  result.innerHTML=`
-  <h3>نتیجه آزمون شما</h3>
-  <strong>${score*2} از ۲۰</strong>
-  <p>تعداد پاسخ‌های درست: ${score} از ${quiz.length}</p>
-  <p>${score>=8?"آفرین! عملکرد خوبی داشتی.":"با مرور درس‌ها می‌توانی نتیجه بهتری بگیری."}</p>
-  <button class="secondary" onclick="startQuiz()">آزمون مجدد</button>
+  <h3>نتیجه آزمون</h3>
+  <strong>${grade} از ۲۰</strong>
+  <p>پاسخ درست: ${score} از ${activeQuiz.length}</p>
+  <button class="main-btn" onclick="startQuiz()">آزمون دوباره</button>
  `;
+
  result.scrollIntoView({behavior:"smooth"});
 }
-
-renderQuestions();
 
 </script>
 </body>
